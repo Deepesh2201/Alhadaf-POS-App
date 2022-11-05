@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="105dp"
+    android:layout_height="105dp"
+    android:id="@+id/rl_payment"
+    android:gravity="center"
+    android:background="@drawable/unselect_payment"
+    android:layout_marginRight="@dimen/dp10dp">
+
+
+    <ImageView
+        android:id="@+id/iv_payment"
+        android:layout_width="@dimen/dp50dp"
+        android:layout_height="@dimen/dp50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp5dp"
+        android:scaleType="fitCenter" />
+
+
+    <TextView
+        android:id="@+id/tv_paymentname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_payment"
+        android:layout_marginTop="@dimen/dp5dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:textSize="@dimen/dp12dp"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="PayTm" />
+
+    <TextView
+        android:id="@+id/tv_bankname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_paymentname"
+        android:layout_marginTop="@dimen/dp5dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:visibility="gone"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/dp12dp" />
+
+
+</RelativeLayout>

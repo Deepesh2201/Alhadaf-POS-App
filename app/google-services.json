@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "738231777192",
+    "firebase_url": "https://fcn-training.firebaseio.com",
+    "project_id": "fcn-training",
+    "storage_bucket": "fcn-training.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738231777192:android:2847d14f3c65aa24ba0f9d",
+        "android_client_info": {
+          "package_name": "com.instanceit.alhadafpos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738231777192-dbu13h2es33a5tso9r1qqlq5inu7dgge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.instanceit.alhadafpos",
+            "certificate_hash": "5511c2177fe43c2d4f9eba06dabf59a5eeff73f3"
+          }
+        },
+        {
+          "client_id": "738231777192-qu9pgui1r0qu0pd71bfchp5ph0dtmoha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUPXBsvR9Zv8l63BiSwIdWby3oRfLVXTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738231777192-qu9pgui1r0qu0pd71bfchp5ph0dtmoha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "738231777192-fvv4banom74gt0mrjtblcbogrr9m7bkp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.instanceit.DietitianPoojaArora"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738231777192:android:6ef83a32a51af0dfba0f9d",
+        "android_client_info": {
+          "package_name": "com.instanceit.alhadafpos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738231777192-qu9pgui1r0qu0pd71bfchp5ph0dtmoha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUPXBsvR9Zv8l63BiSwIdWby3oRfLVXTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738231777192-qu9pgui1r0qu0pd71bfchp5ph0dtmoha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "738231777192-fvv4banom74gt0mrjtblcbogrr9m7bkp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.instanceit.DietitianPoojaArora"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

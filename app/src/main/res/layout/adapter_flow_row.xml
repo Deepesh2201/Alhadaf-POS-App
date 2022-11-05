@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp7dp"
+        android:paddingBottom="@dimen/dp10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/view_start"
+                android:layout_width="@dimen/dp20dp"
+                android:layout_height="3dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@color/loging_btn" />
+
+            <ImageView
+                android:id="@+id/iv_flow_indicater"
+                android:layout_width="@dimen/dp25dp"
+                android:layout_height="@dimen/dp25dp"
+                android:gravity="center"
+                android:src="@drawable/ic_circular_ring" />
+
+            <View
+                android:id="@+id/view_end"
+                android:layout_width="@dimen/dp200dp"
+                android:layout_height="3dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@color/loging_btn" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp5dp"
+            android:layout_marginEnd="@dimen/dp10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_store_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp2dp"
+                android:gravity="left"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/dp12dp" />
+
+            <TextView
+                android:id="@+id/tv_operation_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp2dp"
+                android:gravity="left"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/dp10dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

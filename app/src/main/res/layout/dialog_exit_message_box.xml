@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ln_dlg_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_dialog_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5dp"
+        android:layout_marginRight="@dimen/dp5dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/bg_border_dark"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/idTvDialogMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp50dp"
+                android:layout_marginBottom="@dimen/dp10dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp5dp">
+
+                <Button
+                    android:id="@+id/btnno"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10dp"
+                    android:layout_marginTop="@dimen/dp10dp"
+                    android:layout_marginRight="@dimen/dp5dp"
+                    android:layout_marginBottom="@dimen/dp10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/Gray_dark"
+                    android:text="NO"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp15dp" />
+
+                <Button
+                    android:id="@+id/btnyes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5dp"
+                    android:layout_marginTop="@dimen/dp10dp"
+                    android:layout_marginRight="@dimen/dp10dp"
+                    android:layout_marginBottom="@dimen/dp10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/main_blue"
+                    android:text="Yes"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp15dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/logolin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp40dp"
+            android:background="@android:color/transparent"
+            android:gravity="center">
+
+
+            <ImageView
+                android:id="@+id/iv_gif"
+                android:layout_width="@dimen/dp120dp"
+                android:layout_height="@dimen/dp100dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:src="@drawable/loader" />
+
+            <ImageView
+                android:layout_width="@dimen/dp100dp"
+                android:layout_height="@dimen/dp90dp"
+                android:layout_gravity="center"
+                android:padding="@dimen/dp10dp"
+                android:background="@drawable/bg_border_dark"
+                android:src="@drawable/app_logo_icon" />
+
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

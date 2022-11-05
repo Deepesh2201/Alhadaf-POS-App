@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/idDialogParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5dp"
+        android:layout_marginRight="@dimen/dp5dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/bg_button_white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/idTvDialogMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp5dp"
+                android:layout_marginTop="@dimen/dp50dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnOk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button_white"
+                android:text="ok"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logolin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp50dp"
+            android:background="@android:color/transparent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/dp80dp"
+                android:layout_height="@dimen/dp80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_border"
+                android:padding="@dimen/dp12dp"
+                android:src="@drawable/app_logo_icon" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

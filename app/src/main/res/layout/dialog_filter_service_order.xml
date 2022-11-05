@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ln_ferry_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/trans_black_bottomsheet"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_top_corner"
+        android:backgroundTint="@color/colorBg2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button_top_corner"
+            android:elevation="@dimen/dp2dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/dp10dp">
+
+                <TextView
+                    android:id="@+id/tv_lbl_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:letterSpacing="0.1"
+                    android:text="Filter"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/dp18dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_close_filter_dlg"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dp10dp"
+                android:src="@drawable/ic_close" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1dp"
+            android:background="@color/Gray_light" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/dp5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_select_member"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp5dp"
+                    android:layout_weight="1"
+                    android:hint="Select Member *">
+
+                    <EditText
+                        android:id="@+id/edt_select_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down"
+                        android:drawableTint="@color/black"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:nextFocusDown="@id/edt_nationality_select"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/dp16dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_select_range"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp5dp"
+                    android:layout_weight="1"
+                    android:hint="Select Range *"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/edt_select_range"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down"
+                        android:drawableTint="@color/black"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:nextFocusDown="@id/edt_nationality_select"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/dp16dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_select_lane"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp5dp"
+                    android:layout_weight="1"
+                    android:hint="Select Lane *"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/edt_select_lane"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down"
+                        android:drawableTint="@color/black"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:nextFocusDown="@id/edt_nationality_select"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/dp16dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txt_from_date"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp5dp"
+                        android:layout_weight="1"
+                        android:hint="From Date">
+
+                        <EditText
+                            android:id="@+id/edt_from_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:drawableEnd="@drawable/ic_calendar"
+                            android:drawableTint="@color/black"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:nextFocusDown="@id/edt_nationality_select"
+                            android:textColor="@color/primaryTextColor"
+                            android:textSize="@dimen/dp16dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txt_to_date"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp5dp"
+                        android:layout_weight="1"
+                        android:hint="To Date">
+
+                        <EditText
+                            android:id="@+id/edt_to_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:drawableEnd="@drawable/ic_calendar"
+                            android:drawableTint="@color/black"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:nextFocusDown="@id/edt_nationality_select"
+                            android:textColor="@color/primaryTextColor"
+                            android:textSize="@dimen/dp16dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBg2"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/dp5dp"
+        android:paddingBottom="@dimen/dp5dp">
+
+        <TextView
+            android:id="@+id/tv_btn_reset"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="@dimen/dp5dp"
+            android:layout_marginEnd="@dimen/dp10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_white"
+            android:backgroundTint="@color/gray_nav"
+            android:gravity="center"
+            android:text="Reset"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_btn_apply"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="@dimen/dp5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_white"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="Apply"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp16dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
