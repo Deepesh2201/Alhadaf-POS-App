@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.ServiceOrder.ServiceOrderListingFragment">
@@ -18,7 +16,7 @@
         android:paddingLeft="@dimen/dp10dp"
         android:paddingRight="@dimen/dp10dp"
         android:paddingBottom="@dimen/dp70dp"
-        android:visibility="visible">
+       >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -357,7 +355,7 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="@dimen/dp10dp"
                 android:background="@color/black"
-                android:visibility="gone" />
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -477,6 +475,43 @@
 
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp6dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:letterSpacing="0.05"
+                    android:text=" Total Discount"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/dp80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:letterSpacing="0.05"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp16dp" />
+
+
+                <TextView
+                    android:id="@+id/tv_bill_discount"
+                    android:layout_width="@dimen/dp100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:letterSpacing="0.05"
+                    android:textColor="@color/black"
+                    android:text="0"
+                    android:textSize="@dimen/dp16dp" />
+
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll_bill_discount"
@@ -498,7 +533,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_bill_discount"
+                    android:id="@+id/tv_bill_discount1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:letterSpacing="0.05"
@@ -1215,6 +1250,15 @@
                 android:text="AL HADAF thank you for your loyalty \n For any enquiries please contact us by email \n Info@alhadafrange.com"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20dp"
+                android:gravity="center"
+                android:letterSpacing="0.05"
+                android:text="Powered by DGL Qatar"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -1543,4 +1587,4 @@
     </FrameLayout>
 
 
-</FrameLayout></ScrollView>
+</FrameLayout>

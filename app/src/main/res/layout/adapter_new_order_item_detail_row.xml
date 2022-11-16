@@ -50,6 +50,7 @@
             android:gravity="center"
             android:padding="@dimen/dp5dp"
             android:text="type"
+            android:visibility="gone"
             android:textAlignment="gravity"
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/dp14dp" />
@@ -80,6 +81,17 @@
 
         <TextView
             android:id="@+id/tv_qty_remain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:padding="@dimen/dp5dp"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/dp14dp"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_qty_return"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.2"
@@ -129,6 +141,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.25"
+            android:visibility="gone"
             android:orientation="vertical">
 
             <TextView
@@ -163,6 +176,7 @@
             android:layout_weight="1.2"
             android:gravity="center"
             android:padding="@dimen/dp5dp"
+            android:visibility="gone"
             android:paddingEnd="@dimen/dp5dp"
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/dp14dp" />

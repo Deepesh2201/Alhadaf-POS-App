@@ -40,6 +40,9 @@ public class Storeorderdetailinfo {
     @SerializedName("remainqty")
     @Expose
     private String remainqty;
+    @SerializedName("return_qty")
+    @Expose
+    private String returnqty;
     @SerializedName("issuedqty")
     @Expose
     private String issuedqty;
@@ -291,6 +294,14 @@ public class Storeorderdetailinfo {
     public void setRemainqty(String remainqty) {
         this.remainqty = remainqty;
     }
+    public String getReturnqty() {
+        return returnqty;
+    }
+
+    public void setReturnqty(String returnqty) {
+        this.returnqty = returnqty;
+    }
+
 
     public String getIssuedqty() {
         return issuedqty;

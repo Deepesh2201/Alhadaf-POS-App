@@ -3,6 +3,8 @@ package com.instanceit.alhadafpos.Utility;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.instanceit.alhadafpos.Activities.LoginActivity;
+
 import io.michaelrocks.paranoid.Obfuscate;
 
 /**
@@ -107,7 +109,7 @@ public class SessionManagement {
 
     public static void logOut(Context context) {
         SharedPreferences settings = context.getSharedPreferences(AppConstant.PREFERENCE_NAME, Context.MODE_PRIVATE);
-        settings.edit().clear().commit();
+//        settings.edit().clear().commit();
 
     }
 

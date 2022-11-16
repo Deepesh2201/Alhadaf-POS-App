@@ -47,6 +47,9 @@ public class OrderHistoryList {
     private String totalpayableamt;
     @SerializedName("totalpaidamount")
     @Expose
+    private String totaldiscount;
+    @SerializedName("totaldiscount")
+    @Expose
     private String totalpaidamount;
     @SerializedName("totalchangeamount")
     @Expose
@@ -160,6 +163,14 @@ public class OrderHistoryList {
 
     public void setTotaltaxableamt(String totaltaxableamt) {
         this.totaltaxableamt = totaltaxableamt;
+    }
+
+    public String getTotaldiscount() {
+        return totaldiscount;
+    }
+
+    public void setTotaldiscount(String totaldiscount) {
+        this.totaldiscount = totaldiscount;
     }
 
     public String getTotaltax() {

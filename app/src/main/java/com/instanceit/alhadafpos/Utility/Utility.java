@@ -883,7 +883,7 @@ public class Utility {
                 String str_lang_id = SessionManagement.getStringValue(activity, LabelMaster.SELECTED_LANGUAGE_ID, "");
                 String json = SessionManagement.getStringValue(activity, LabelMaster.LANGUAGE_LABEL_LIST, "");
 
-                SessionManagement.logOut(activity);
+//                SessionManagement.logOut(activity);
                 SessionManagement.setBoolean(activity, AppConstant.ISLOGING, false);
 
                 SessionManagement.savePreferences(activity, LabelMaster.SELECTED_LANGUAGE_ID, str_lang_id);

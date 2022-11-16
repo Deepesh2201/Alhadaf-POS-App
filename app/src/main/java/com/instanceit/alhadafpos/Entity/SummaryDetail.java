@@ -23,7 +23,7 @@ public class SummaryDetail {
     private Integer qty;
     @SerializedName("discount")
     @Expose
-    private Double discount;
+    private Integer discount=0;
     @SerializedName("discountamt")
     @Expose
     private Double discountamt;
@@ -94,12 +94,12 @@ public class SummaryDetail {
         this.qty = qty;
     }
 
-    public Double getDiscount() {
+    public Integer getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Double discount) {
-        this.discount = discount;
+    public void setDiscount(double discount) {
+        this.discount = (int) discount;
     }
 
     public Double getDiscountamt() {

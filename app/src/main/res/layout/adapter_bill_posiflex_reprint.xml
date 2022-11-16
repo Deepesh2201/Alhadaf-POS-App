@@ -19,6 +19,7 @@
             android:layout_height="match_parent"
             android:letterSpacing="0.05"
             android:text="sr"
+            android:textStyle="normal"
             android:textColor="@color/black"
             android:textSize="@dimen/sp16" />
 
@@ -36,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:letterSpacing="0.05"
                 android:text="Name"
+                android:textStyle="normal"
                 android:textColor="@color/black"
                 android:textSize="@dimen/dp16dp" />
 

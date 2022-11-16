@@ -30,6 +30,9 @@ public class MyCart {
     @SerializedName("itemname")
     @Expose
     private String itemname;
+    @SerializedName("itemdiscount")
+    @Expose
+    private Integer itemdiscount=0;
     @SerializedName("qty")
     @Expose
     private Integer qty = 0;
@@ -38,6 +41,7 @@ public class MyCart {
     private ArrayList<SummaryDetail> summaryDetails = new ArrayList<>();
     private Integer temp_remainqty = 0;
 
+    private Integer temp_disc = 0;
 
     public String getCategoryid() {
         return categoryid;
@@ -90,9 +94,15 @@ public class MyCart {
     public Integer getQty() {
         return qty;
     }
+    public Integer getDisc() {
+        return itemdiscount;
+    }
 
     public void setQty(Integer qty) {
         this.qty = qty;
+    }
+    public void setDisc(Integer qty) {
+        this.itemdiscount = qty;
     }
 
     public ArrayList<SummaryDetail> getSummaryDetails() {
@@ -110,7 +120,9 @@ public class MyCart {
     public void setTemp_remainqty(Integer temp_remainqty) {
         this.temp_remainqty = temp_remainqty;
     }
-
+    public void setTemp_remaindisc(Integer temp_remainqty) {
+        this.temp_disc = temp_remainqty;
+    }
     @Override
     public boolean equals(@Nullable Object obj) {
         MyCart model = (MyCart) obj;
@@ -119,5 +131,7 @@ public class MyCart {
         } else {
             return false;
         }
+
+
     }
 }

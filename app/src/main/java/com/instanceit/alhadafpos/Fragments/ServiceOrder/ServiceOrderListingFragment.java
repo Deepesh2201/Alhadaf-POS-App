@@ -761,7 +761,7 @@ public class ServiceOrderListingFragment extends Fragment {
             tv_lbl_type.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_ITEM_DLG_TYPE).getLabel());
             tv_lbl_qty.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_ITEM_DLG_QTY).getLabel());
             tv_lbl_discount.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_ORD_DLG_ITEM_DESCOUNT).getLabel());
-            tv_lbl_taxable.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_ORD_DLG_ITEM_TAXABLE).getLabel());
+            tv_lbl_taxable.setText("Total");
             tv_lbl_vat.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_CART_TV_TOT_VAT).getLabel());
             tv_lbl_amount_title.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_PAYMENT_DLG_TITLE_AMOUNT).getLabel());
             tv_lbl_total.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_CART_TV_TOT).getLabel());
@@ -864,7 +864,9 @@ public class ServiceOrderListingFragment extends Fragment {
             TextView dialogTitle = confirmDialog.findViewById(R.id.idTvDialogMsg);
             dialogTitle.setText(message);
             Button btnOk = confirmDialog.findViewById(R.id.btnyes);
+
             Button btnno = confirmDialog.findViewById(R.id.btnno);
+            btnno.setVisibility(GONE);
             ImageView iv_gif = confirmDialog.findViewById(R.id.iv_gif);
 
             try {

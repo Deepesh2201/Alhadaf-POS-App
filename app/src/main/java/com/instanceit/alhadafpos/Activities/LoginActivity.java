@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox chk_showpass;
 
     //Variables
-    String key, unqkey, uid, utypeid, personname, username, fullname, contact, email, adlogin, yearid, yearname, activeyearid;
+    String key, unqkey, uid, utypeid, personname, username, fullname, contact, email, adlogin, yearid, yearname, activeyearid,udiscount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,6 +169,7 @@ public class LoginActivity extends AppCompatActivity {
                         yearid = jsonObject.getString("yearid");
                         yearname = jsonObject.getString("yearname");
                         activeyearid = jsonObject.getString("activeyearid");
+                        udiscount = jsonObject.getString("udiscount");
 
                         SaveData();
 
@@ -206,6 +207,7 @@ public class LoginActivity extends AppCompatActivity {
         SessionManagement.savePreferences(LoginActivity.this, AppConstant.YEARID, yearid);
         SessionManagement.savePreferences(LoginActivity.this, AppConstant.YEARNAME, yearname);
         SessionManagement.savePreferences(LoginActivity.this, AppConstant.ACTIVEYEARID, activeyearid);
+        SessionManagement.savePreferences(LoginActivity.this, AppConstant.UDISCOUNT, udiscount);
 
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);

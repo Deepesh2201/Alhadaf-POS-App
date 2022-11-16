@@ -60,6 +60,7 @@ import com.instanceit.alhadafpos.Entity.OperationFlow;
 import com.instanceit.alhadafpos.Entity.PaymentModel;
 import com.instanceit.alhadafpos.Entity.Storeinstructiondatum;
 import com.instanceit.alhadafpos.Entity.SummaryDetail;
+import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.AdapterCallback;
 import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.CashNoteAdapter;
 import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.CategoryListAdapter;
 import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.InstructionListAdapter;
@@ -101,7 +102,7 @@ import io.michaelrocks.paranoid.Obfuscate;
 
 
 @Obfuscate
-public class CreateOrderMainFragment extends Fragment {
+public class CreateOrderMainFragment extends Fragment implements AdapterCallback {
 
 
     MainActivity mainActivity;
@@ -1987,7 +1988,20 @@ public class CreateOrderMainFragment extends Fragment {
     //<editor-fold desc="Set Adapter">
     CartAdapter cartAdapter;
 
+    @Override
+    public void onItemClicked(int position){
+        // call back here
+        Log.d("testing ","working dialog si");
+        OpenConfirmDialog("position","fn","You don't have permission to give much discount ");
+    }
+
+    @Override
+    public void onItemvalue(double value, int index) {
+
+    }
+
     public void SetCartAdapter() {
+//        OpenConfirmDialog("position","positionfn","You testing sir 't have permission to give much discount ");
 
         try {
             if (cartArrayList != null && cartArrayList.size() > 0) {
@@ -2040,6 +2054,59 @@ public class CreateOrderMainFragment extends Fragment {
 
 
     Numpad numpad;
+
+    public static Dialog confirmDialog;
+
+    private void OpenConfirmDialog(String id, String orderid, String message) {
+        try {
+
+            if (confirmDialog != null && confirmDialog.isShowing())
+                return;
+
+            confirmDialog = new Dialog(getContext());
+            confirmDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            confirmDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            confirmDialog.setContentView(R.layout.dialog_alert_message);
+            TextView dialogTitle = confirmDialog.findViewById(R.id.tv_dlg_clr_cart);
+            dialogTitle.setText(message);
+            Button btnOk = confirmDialog.findViewById(R.id.btn_goto_cart);
+            Button btnno = confirmDialog.findViewById(R.id.btn_clear_cart);
+
+            try {
+                btnOk.setText("ok");
+//                btnno.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_DLG_BTN_EXIT_NO).getLabel());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            btnOk.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    try {
+                        confirmDialog.dismiss();
+                        confirmDialog = null;
+//                        if (id.equals("")) {
+//                            CallApiCancelOrder(orderid);
+//                        } else {
+//                            CallApiCancelItem(id, orderid);
+//                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            btnno.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    confirmDialog.dismiss();
+                }
+            });
+            confirmDialog.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private void getPaymentMethodeDialog() {
 

@@ -91,6 +91,8 @@
                             android:textColor="@color/black"
                             android:visibility="gone" />
 
+
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_item_price"
                             android:layout_width="match_parent"
@@ -99,11 +101,23 @@
 
                         <LinearLayout
                             android:id="@+id/ll_plusandminus"
-                            android:layout_width="@dimen/dp150dp"
+                            android:layout_width="@dimen/dp200dp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:background="@color/white"
                             android:orientation="horizontal">
+                            <EditText
+                                android:layout_width="50dp"
+                                android:layout_height="35dp"
+                                android:hint="Disc %"
+                                android:id="@+id/item_dis"
+                                android:textColor="@color/black"
+                                android:inputType="number"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:maxLength="2"
+                                android:textSize="12dp"
+                                />
 
                             <Button
                                 android:id="@+id/btn_minus"
@@ -115,6 +129,7 @@
                                 android:background="@drawable/circle"
                                 android:backgroundTint="@color/loging_btn"
                                 android:text="-"
+                                android:layout_marginRight="@dimen/dp10dp"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/dp15dp" />
 

@@ -905,8 +905,14 @@ public class MainActivity extends AppCompatActivity {
 
             btnOk.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    logoutapp.dismiss();
+//                    logoutapp.dismiss();
+
                     Utility.maxDeviceLogout(MainActivity.this, message);
+                    finish();
+                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                    startActivity(intent);
+
+                    overridePendingTransition(0, 0);
                 }
             });
 

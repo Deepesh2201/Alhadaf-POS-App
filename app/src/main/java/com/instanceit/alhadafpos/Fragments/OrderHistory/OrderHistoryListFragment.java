@@ -533,6 +533,8 @@ public class OrderHistoryListFragment extends Fragment {
             qty = qty + Integer.parseInt(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getQty());
             price = price + Double.parseDouble(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getPrice());
             discount = discount + Double.parseDouble(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getDiscountamt());
+//            discount = discount + Double.parseDouble(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getTotaldiscount());
+
             taxable = taxable + Double.parseDouble(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getTaxable());
             vat = vat + Double.parseDouble(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getIgsttaxamt());
             amount = amount + Double.parseDouble(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getFinalprice());

@@ -84,7 +84,7 @@ public class OrderHistoryItemDetailAdapter extends RecyclerView.Adapter<OrderHis
         holder.tv_vat.setText(String.format("%.2f", Double.parseDouble(storeorderdetailinfoArrayList.get(position).getIgsttaxamt())));
         holder.tv_taxable.setText(String.format("%.2f", Double.parseDouble(storeorderdetailinfoArrayList.get(position).getTaxable())));
         holder.tv_price.setText(String.format("%.2f", Double.parseDouble(storeorderdetailinfoArrayList.get(position).getPrice())));
-
+        holder.tv_qty_return.setText(String.format("%d", Integer.parseInt(storeorderdetailinfoArrayList.get(position).getReturnqty())));
         holder.iv_del_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,7 +134,7 @@ public class OrderHistoryItemDetailAdapter extends RecyclerView.Adapter<OrderHis
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_itemname, tv_item_type, tv_qty, tv_price, tv_discount, tv_taxable, tv_vat, tv_amount, tv_tax_p, tv_item_cat, tv_qty_issue, tv_qty_remain, tv_status;
+        TextView tv_itemname, tv_item_type, tv_qty,tv_qty_return, tv_price, tv_discount, tv_taxable, tv_vat, tv_amount, tv_tax_p, tv_item_cat, tv_qty_issue, tv_qty_remain, tv_status;
         LinearLayout ln_operation, ln_vat;
         ImageView iv_del_order;
 
@@ -150,6 +150,7 @@ public class OrderHistoryItemDetailAdapter extends RecyclerView.Adapter<OrderHis
             tv_vat = itemView.findViewById(R.id.tv_vat);
             tv_amount = itemView.findViewById(R.id.tv_amount);
             tv_tax_p = itemView.findViewById(R.id.tv_tax_p);
+            tv_qty_return=itemView.findViewById(R.id.tv_qty_return);
             tv_item_cat = itemView.findViewById(R.id.tv_item_cat);
             ln_operation = itemView.findViewById(R.id.ln_operation);
             tv_qty_issue = itemView.findViewById(R.id.tv_qty_issue);

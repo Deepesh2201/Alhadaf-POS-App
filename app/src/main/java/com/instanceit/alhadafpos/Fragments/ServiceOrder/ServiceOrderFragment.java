@@ -61,6 +61,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.instanceit.alhadafpos.Activities.MainActivity;
 import com.instanceit.alhadafpos.Activities.R80Activity;
@@ -75,6 +76,7 @@ import com.instanceit.alhadafpos.Entity.ServiceOrderDetail;
 import com.instanceit.alhadafpos.Entity.Storeinstructiondatum;
 import com.instanceit.alhadafpos.Entity.SummaryDetail;
 import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.ActivePackagesListAdapter;
+import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.AdapterCallback;
 import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.CartAdapter;
 import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.CashNoteAdapter;
 import com.instanceit.alhadafpos.Fragments.CreateOrder.Adapter.CategoryListAdapter;
@@ -117,11 +119,13 @@ import org.json.JSONObject;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-public class ServiceOrderFragment extends Fragment {
+public class ServiceOrderFragment extends Fragment implements AdapterCallback {
 
     MainActivity mainActivity;
 
@@ -142,7 +146,7 @@ public class ServiceOrderFragment extends Fragment {
 
     //bill print views
     FrameLayout frameLayout_bill;
-    TextView tv_cust_name, tv_bill_Remaining, tv_cust_mobile, tv_salepersonname, tv_date, tv_bill_taxbale, tv_bill_sgst, tv_bill_cgst, tv_bill_total, tv_companyname,
+    TextView tv_cust_name, tv_bill_Remaining, tv_cust_mobile, tv_salepersonname, tv_date, tv_bill_taxbale, tv_bill_sgst, tv_bill_cgst, tv_bill_total,tx_discount,tv_bill_total_disc, tv_companyname,
             tv_gst, tv_fssaino, tv_address, tv_orderno, tv_cashamt, tv_ordertype, tv_header_paytype, tv_parentcompany, tv_order_qty, tv_store_name, tv_ord_no;
     RecyclerView rv_item_bill, rv_bill_paytype;
     View view1, view2;
@@ -164,7 +168,7 @@ public class ServiceOrderFragment extends Fragment {
 
     public ArrayList<Model> subCatArrayList;
     public ArrayList<Items> itemsArrayList;
-    public ArrayList<MyCart> cartArrayList;
+    public ArrayList<MyCart> cartArrayList = new ArrayList<>();
     ArrayList<Items> membershipItemArrayList;
 
     ItemListAdapter itemListAdapter;
@@ -185,11 +189,42 @@ public class ServiceOrderFragment extends Fragment {
 //            Log.e("myBinder", "disconnect");
         }
     };
+    int open=1;
+    void checkcart(){
+        Gson gson = new Gson();
+
+        if(!Objects.equals(SessionManagement.getStringValue(getContext(), AppConstant.TEMPCART, ""), "")) {
+
+            List<MyCart> list = Arrays.asList(new GsonBuilder().create().fromJson(SessionManagement.getStringValue(getContext(), AppConstant.TEMPCART, ""), MyCart[].class));
+
+//        ArrayList<MyCart> cart = gson.fromJson(SessionManagement.getStringValue(getContext(),AppConstant.TEMPCART,""), (Type) MyCart.class);
+
+//        SessionManagement.savePreferences(getContext(), AppConstant.TEMPCART, cart);
+
+            Log.d("testing", SessionManagement.getStringValue(getContext(), AppConstant.TEMPCART, ""));
+//        cartArrayList=list;
+            if (list.size() > 0) {
+//                if(open==1) {
+                    open=0;
+                    OpenCartConfirmDialog("position", "fn", "Would You like to proceed with old cart list? ");
+
+//                }
+                cartArrayList.addAll(list);
+//                SessionManagement.savePreferences(getContext(), AppConstant.TEMPCART, "");
+            }
+
+
+//        cartAdapter.notifyDataSetChanged();
+
+        }
+
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mainActivity = (MainActivity) getActivity();
+
 
         //bind service，get imyBinder
         Intent intent = new Intent(mainActivity, PosprinterService.class);
@@ -206,11 +241,21 @@ public class ServiceOrderFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Declaration(view);
         Initialization(view);
+        checkcart();
+
         onBackPress(view);
+//        checkcart();
+        SetCartAdapter();
+        CalculateCartTotal();
+
+
+//        CalculateCartTotal();
+
 
     }
 
     private void Declaration(View view) {
+//        tx_discount = view.findViewById(R.id.tv_total_disc);
         rv_category = view.findViewById(R.id.rv_category);
         rv_item = view.findViewById(R.id.rv_item);
         rv_cart = view.findViewById(R.id.rv_cart);
@@ -286,6 +331,11 @@ public class ServiceOrderFragment extends Fragment {
         tv_bill_cgst = view.findViewById(R.id.tv_bill_cgst);
         tv_bill_sgst = view.findViewById(R.id.tv_bill_sgst);
         tv_bill_total = view.findViewById(R.id.tv_bill_total);
+        tv_bill_total_disc = view.findViewById(R.id.tv_bill_discount);
+
+        tv_bill_discount= view.findViewById(R.id.tv_bill_discount);
+        ll_bill_discount=view.findViewById(R.id.ll_bill_discount);
+
         tv_gst = view.findViewById(R.id.tv_gst);
         tv_address = view.findViewById(R.id.tv_address);
         tv_orderno = view.findViewById(R.id.tv_orderno);
@@ -458,8 +508,11 @@ public class ServiceOrderFragment extends Fragment {
                     }
                 }
                 SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, new Gson().toJson(cartArrayList));
+                SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
+
 //                Log.e("update_array", "Initialization: " + SessionManagement.getStringValue(mainActivity, AppConstant.ITEMCARTARRAY, ""));
                 CalculateCartTotal();
+
                 SetCartAdapter();
             }
             callApiGetMember360Data();
@@ -636,7 +689,17 @@ public class ServiceOrderFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (cartArrayList != null && cartArrayList.size() > 0) {
+//                    Person p = new Person();
+//                    p.setname("xyz");
+//                    p.setage("18");
+                    Gson gson = new Gson();
+                    String cart = gson.toJson(cartArrayList);
+                    Log.d("testing",cart);
+                    SessionManagement.savePreferences(getContext(), AppConstant.TEMPCART, cart);
+                    SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, new Gson().toJson(cartArrayList));
+
                     if (Action.equals(AppConstant.INSERT_SERVICE_ORDER_ACTION)) {
+
                         SessionManagement.savePreferences(getContext(), AppConstant.PAYMENTLIST, "");
                     }
                     getPaymentMethodeDialog();
@@ -666,6 +729,9 @@ public class ServiceOrderFragment extends Fragment {
         });
 
     }
+
+
+
 
     //<editor-fold desc="cart clear dialog">
     public static Dialog clearcart;
@@ -703,6 +769,8 @@ public class ServiceOrderFragment extends Fragment {
                     try {
                         //  cartArrayList.clear();
                         cartArrayList = new ArrayList<>();
+                        value=0;
+                        total_item_discount=0;
 
                         SessionManagement.savePreferences(getContext(), AppConstant.ITEMCARTARRAY, "");
                         SessionManagement.savePreferences(getContext(), AppConstant.PAYMENTLIST, "");
@@ -1749,7 +1817,7 @@ public class ServiceOrderFragment extends Fragment {
         ArrayList<MyCart> temp_cartArrayList = new ArrayList<>();
         Type listType = new TypeToken<ArrayList<MyCart>>() {
         }.getType();
-        temp_cartArrayList = new Gson().fromJson(SessionManagement.getStringValue(mainActivity, AppConstant.ITEMCARTARRAY, ""), listType);
+        temp_cartArrayList = new Gson().fromJson(SessionManagement.getStringValue(mainActivity, AppConstant.TEMPCART, ""), listType);
         if (temp_cartArrayList == null) {
             temp_cartArrayList = new ArrayList<>();
         }
@@ -1783,11 +1851,11 @@ public class ServiceOrderFragment extends Fragment {
             int cartIndex = cartArrayList.indexOf(cartModel);
             cartArrayList.get(cartIndex).setQty(cartArrayList.get(cartIndex).getQty() + 1);
             cartArrayList.get(cartIndex).setTemp_remainqty(cartArrayList.get(cartIndex).getQty());
-            SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, new Gson().toJson(cartArrayList));
+            SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
             manageCartScheme(itemModel, cartIndex, true);
         } else {
             calculateDefaultItem(itemModel, cartArrayList.size() - 1, 1, false);
-            SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, new Gson().toJson(cartArrayList));
+            SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
             manageCartScheme(itemModel, cartArrayList.size() - 1, true);
         }
 
@@ -1806,7 +1874,9 @@ public class ServiceOrderFragment extends Fragment {
         item360Model.setId(itemModel.getId());
 
         try {
+            if(cartArrayList==null){
             cartArrayList = new ArrayList<>();
+            }
             cartArrayList = getCartArray();
         } catch (Exception e) {
             e.printStackTrace();
@@ -1887,8 +1957,7 @@ public class ServiceOrderFragment extends Fragment {
         // Log.e("TAG", "manageCartScheme: " + new Gson().toJson(cartArrayList));
 
 //        Log.e("TAG", "AddToCart: " + new Gson().toJson(cartArrayList));
-        SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, new Gson().toJson(cartArrayList));
-
+        SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
         CalculateCartTotal();
         SetCartAdapter();
 
@@ -2142,6 +2211,8 @@ public class ServiceOrderFragment extends Fragment {
     double total_taxable_amount_withqty = 0.0;
     double total_tax_amount_withqty = 0.0;
     double total_payable_amount_withqty = 0.0;
+    double total_item_discount = 0.0;
+    double total_item_discount_all = 0.0;
 
     public void CalculateCartTotal() {
 
@@ -2152,10 +2223,13 @@ public class ServiceOrderFragment extends Fragment {
         final_Price = 0.0;
         taxableamt = 0.0;
         taxamt = 0.0;
+        total_item_discount=0.0;
+        total_item_discount_all=0.0;
         Double price = 0.0;
 
         try {
-            cartArrayList = getCartArray();
+            if(cartArrayList==null){
+            cartArrayList = getCartArray();}
         } catch (Exception e) {
             e.printStackTrace();
             cartArrayList = new ArrayList<>();
@@ -2180,7 +2254,8 @@ public class ServiceOrderFragment extends Fragment {
                 for (int j = 0; j < cartArrayList.get(i).getSummaryDetails().size(); j++) {
 
                     if (cartArrayList.get(i).getSummaryDetails().get(j).getType() != null && cartArrayList.get(i).getSummaryDetails().get(j).getType().equals("2")) {
-                        price = cartArrayList.get(i).getSummaryDetails().get(j).getPrice() - cartArrayList.get(i).getSummaryDetails().get(j).getDiscountamt();
+                        price = (cartArrayList.get(i).getSummaryDetails().get(j).getPrice()*cartArrayList.get(i).getSummaryDetails().get(j).getDiscount())/100 - cartArrayList.get(i).getSummaryDetails().get(j).getDiscountamt();
+//                        total_item_discount+=cartArrayList.get(i).getSummaryDetails().get(j).getDiscount();
 
                         if (cartArrayList.get(i).getSummaryDetails().get(j).getTaxtype().equals("1")) {
                             //  Exclusive  tax
@@ -2193,15 +2268,23 @@ public class ServiceOrderFragment extends Fragment {
                             taxableamt = (final_Price * 100) / (100 + (cartArrayList.get(i).getSummaryDetails().get(j).getIgst()));
                             taxamt = final_Price - taxableamt;
                         }
+                        total_item_discount = ( (cartArrayList.get(i).getSummaryDetails().get(j).getPrice())*cartArrayList.get(i).getDisc())/100;
                         total_price_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
-                        total_taxable_amount_withqty += taxableamt * cartArrayList.get(i).getSummaryDetails().get(j).getQty();
+                        total_item_discount_all+=total_item_discount;
+
+                        total_taxable_amount_withqty += taxableamt * cartArrayList.get(i).getSummaryDetails().get(j).getQty()-total_item_discount;
                         total_tax_amount_withqty += taxamt * cartArrayList.get(i).getSummaryDetails().get(j).getQty();
+                        cartArrayList.get(i).getSummaryDetails().get(j).setFinalprice(cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()-total_item_discount);
                         total_payable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
                     } else {
-                        total_price_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getQty()
-                                * (cartArrayList.get(i).getSummaryDetails().get(j).getPrice());
-                        total_taxable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getTaxable();
+                        total_item_discount = (cartArrayList.get(i).getSummaryDetails().get(j).getQty()
+                                * (cartArrayList.get(i).getSummaryDetails().get(j).getPrice())*cartArrayList.get(i).getDisc())/100;
+                        total_price_withqty += (cartArrayList.get(i).getSummaryDetails().get(j).getQty()
+                                * (cartArrayList.get(i).getSummaryDetails().get(j).getPrice()));
+                        total_item_discount_all+=total_item_discount;
+                        total_taxable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getTaxable()-total_item_discount;
                         total_tax_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getIgsttaxamt();
+                        cartArrayList.get(i).getSummaryDetails().get(j).setFinalprice(cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()-total_item_discount);
                         total_payable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
                     }
                 }
@@ -2211,9 +2294,17 @@ public class ServiceOrderFragment extends Fragment {
         tv_total_price.setText("Qr." + String.format("%.2f", total_price_withqty));
         tv_tot_vat.setText("Qr." + String.format("%.2f", (total_tax_amount_withqty)));
         tv_total_taxable_amt.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
-        tv_total_payable_amount.setText("Qr." + String.format("%.2f", total_payable_amount_withqty));
+        tv_total_payable_amount.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
 
-        SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, new Gson().toJson(cartArrayList));
+        if(total_item_discount_all>0){
+        ll_bill_discount.setVisibility(VISIBLE);
+        tv_bill_discount.setText("Qr." + String.format("%.2f", total_item_discount_all));
+        }
+        else{
+            ll_bill_discount.setVisibility(GONE);
+        }
+
+        SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
 //        Log.e("Add", "ITEMCARTARRAY" + new Gson().toJson(cartArrayList));
 
 //        SetCartAdapter();
@@ -2221,17 +2312,18 @@ public class ServiceOrderFragment extends Fragment {
     }
     //</editor-fold>
 
+//    CartAdapter cartAdapter = new CartAdapter((Context) getActivity(), cartArrayList, null, ServiceOrderFragment.this,ServiceOrderFragment.this ,SessionManagement.getStringValue(getContext(),AppConstant.UDISCOUNT,""));
 
     //<editor-fold desc="Set Adapter">
     public void SetCartAdapter() {
 //        Log.e("SetCartAdapter", "SetCartAdapter: " + new Gson().toJson(cartArrayList));
+//        checkcart();
         try {
             if (cartArrayList != null && cartArrayList.size() > 0) {
-
                 rv_cart.setLayoutManager(new LinearLayoutManager(getActivity()));
-                CartAdapter cartAdapter = new CartAdapter(getActivity(), cartArrayList, null, ServiceOrderFragment.this);
+                CartAdapter cartAdapter = new CartAdapter((Context) getActivity(), cartArrayList, null, ServiceOrderFragment.this,ServiceOrderFragment.this ,SessionManagement.getStringValue(getContext(),AppConstant.UDISCOUNT,""));
+                cartAdapter.notifyDataSetChanged();
                 rv_cart.setAdapter(cartAdapter);
-
                 rv_cart.setVisibility(VISIBLE);
                 ll_total.setVisibility(VISIBLE);
                 ll_maintotal.setVisibility(VISIBLE);
@@ -2263,12 +2355,13 @@ public class ServiceOrderFragment extends Fragment {
 
     EditText et_amount;
     TextView tv_header, tv_change, tv_remaining, tv_bill_discount;
+    LinearLayout ll_bill_discount;
     Button btn_cancel, btn_printbill;
-    TextView tv_totamt, tv_paidamt;
+    TextView tv_totamt, tv_paidamt,tv_totdiscamt;
     RecyclerView rv_payment, rv_paymenttype, rv_cashnote;
     LinearLayout ll_remaing, ll_change;
     TextInputLayout til_rf_number;
-    EditText edt_rf_number;
+    EditText edt_rf_number,edt_discount;
 
 
     //variable
@@ -2277,7 +2370,7 @@ public class ServiceOrderFragment extends Fragment {
 
 
     Numpad numpad;
-
+    double value=0.0;
     private void getPaymentMethodeDialog() {
 
         if (paymentdialog == null) {
@@ -2301,6 +2394,7 @@ public class ServiceOrderFragment extends Fragment {
         rv_paymenttype = paymentdialog.findViewById(R.id.rv_paymenttype);
         numpad = paymentdialog.findViewById(R.id.numpad);
         tv_totamt = paymentdialog.findViewById(R.id.tv_totamt);
+        tv_totdiscamt=paymentdialog.findViewById(R.id.tv_totdiscamt);
         tv_paidamt = paymentdialog.findViewById(R.id.tv_paidamt);
         ll_remaing = paymentdialog.findViewById(R.id.ll_remaing);
         ll_change = paymentdialog.findViewById(R.id.ll_change);
@@ -2315,9 +2409,19 @@ public class ServiceOrderFragment extends Fragment {
         tv_header = paymentdialog.findViewById(R.id.tv_header);
         til_rf_number = paymentdialog.findViewById(R.id.til_rf_number);
         edt_rf_number = paymentdialog.findViewById(R.id.edt_rf_number);
+        edt_discount = paymentdialog.findViewById(R.id.edt_discount);
+
         //</editor-fold>
 
         try {
+            if(total_item_discount_all>0){
+                edt_discount.setFocusable(false);
+                edt_discount.setFocusableInTouchMode(false); // user touches widget on phone with touch screen
+                edt_discount.setClickable(false);
+                tv_totdiscamt.setText("Qr ."+total_item_discount_all);
+
+
+            }
             tv_lbl_payment_type.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_PAYMENT_DLG_TITLE_PAYMENT_TYPE).getLabel());
             tv_lbl_amount.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_PAYMENT_DLG_TITLE_AMOUNT).getLabel());
             tv_lbl_total_amount.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_PAYMENT_DLG_TITLE_TOTAL_AMT).getLabel() + " :");
@@ -2392,8 +2496,13 @@ public class ServiceOrderFragment extends Fragment {
         numpad.setIconsColor(getResources().getColor(R.color.colorPrimary));
 
         tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_payable_amount_withqty))));
-        tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_payable_amount_withqty))));
-        tv_header.setText("Total : " + String.format("%.2f", total_payable_amount_withqty));
+//         value=total_payable_amount_withqty;
+//
+//        tv_totdiscamt.setText(String.format("%.2f", value));
+        tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_taxable_amount_withqty))));
+
+        tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_taxable_amount_withqty))-value));
+        tv_header.setText("Total : " + String.format("%.2f", total_taxable_amount_withqty));
 
 
         btn_cancel.setOnClickListener(new View.OnClickListener() {
@@ -2403,6 +2512,55 @@ public class ServiceOrderFragment extends Fragment {
                 paymentdialog.dismiss();
                 paymentdialog = null;
             }
+        });
+        edt_discount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.toString().length()>0&&Double.parseDouble(editable.toString())<=
+                        Double.parseDouble(SessionManagement.getStringValue(getContext(),AppConstant.UDISCOUNT,"")))
+                {
+                    value = (total_taxable_amount_withqty * Double.parseDouble(edt_discount.getText().toString())) / 100;
+                    tv_totdiscamt.setText(String.format("%.2f", value));
+                    total_item_discount_all=value;
+                    tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_taxable_amount_withqty))));
+                    double temp_FinalTotal=total_taxable_amount_withqty-value;
+                    int remaininng = (int) Math.round(temp_FinalTotal);
+                    tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(remaininng))));
+
+//                    tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(totalRemainAmt))));
+                    tv_header.setText("Total : " + String.format("%.2f", total_taxable_amount_withqty));
+
+                }else{
+                    value = 0.0;
+                    tv_totdiscamt.setText(String.format("%.2f", value));
+                    total_item_discount_all=value;
+                    tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_taxable_amount_withqty))));
+                    double temp_FinalTotal=total_taxable_amount_withqty-value;
+                    int remaininng = (int) Math.round(temp_FinalTotal);
+                    tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(remaininng))));
+
+//                    tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(totalRemainAmt))));
+                    tv_header.setText("Total : " + String.format("%.2f", total_taxable_amount_withqty));
+
+                }
+                if(editable.toString().length()>0&&Double.parseDouble(editable.toString())>
+                        Double.parseDouble(SessionManagement.getStringValue(getContext(),AppConstant.UDISCOUNT,""))){
+                    OpenConfirmDialog("position","fn","You don't have permission to give much discount ");
+                }
+                            {
+            }
+
+        }
         });
 
         btn_printbill.setOnClickListener(new View.OnClickListener() {
@@ -2486,6 +2644,7 @@ public class ServiceOrderFragment extends Fragment {
 
                                 paymentmodelArrayList = new ArrayList<>();
                                 paymentmodelArrayList = gson.fromJson(jsonArray.toString(), type);
+                                paymentmodelArrayList.remove(0);
 
                                 PaymentTypeAdapter paymentTypeAdapter = new PaymentTypeAdapter(getContext(), paymentmodelArrayList, null, ServiceOrderFragment.this);
                                 rv_paymenttype.setAdapter(paymentTypeAdapter);
@@ -2554,7 +2713,7 @@ public class ServiceOrderFragment extends Fragment {
 
     public void CalculateChanegAndRemainingAmt() {
 
-        Double temp_FinalTotal = total_payable_amount_withqty;
+        Double temp_FinalTotal = total_taxable_amount_withqty-value;
 
         String paymenttype = SessionManagement.getStringValue(getContext(), AppConstant.PAYMENTLIST, "");
         Type type = new TypeToken<List<PaymentModel>>() {
@@ -2605,9 +2764,18 @@ public class ServiceOrderFragment extends Fragment {
         params.put("storeid", SessionManagement.getStringValue(getContext(), AppConstant.STORE_ID, ""));
         params.put("memberid", member360ArrayList.get(0).getId());
         params.put("membercontact", member360ArrayList.get(0).getContact());
-        params.put("totalpayableamt", "" + total_payable_amount_withqty);
+        params.put("totalpayableamt", "" + (total_taxable_amount_withqty-value));
         params.put("totalpaidamount", "" + totalPaidAmt);
         params.put("totalchangeamount", "" + totalChangeAmt);
+//        if(total_item_discount_all>0){
+        params.put("totaldiscount", "" + String.valueOf(total_item_discount_all));
+    //    params.put("totaldiscount", "" + String.valueOf(8));
+        Log.d("asdf", String.valueOf(total_item_discount_all));
+//        }else if(value>0){
+//            params.put("totaldiscount", "" + String.valueOf(value));
+//
+//        }
+
         params.put("ordernote", "");
         params.put("cartitemdata", SessionManagement.getStringValue(getContext(), AppConstant.ITEMCARTARRAY, ""));
         params.put("paymentdata", SessionManagement.getStringValue(getContext(), AppConstant.PAYMENTLIST, ""));
@@ -2664,6 +2832,7 @@ public class ServiceOrderFragment extends Fragment {
                                     cartArrayList = new ArrayList<>();
 
                                     SessionManagement.savePreferences(getContext(), AppConstant.ITEMCARTARRAY, "");
+                                    SessionManagement.savePreferences(getContext(), AppConstant.TEMPCART, "");
                                     SessionManagement.savePreferences(getContext(), AppConstant.PAYMENTLIST, "");
                                     getCartArray();
                                     SetCartAdapter();
@@ -2719,7 +2888,15 @@ public class ServiceOrderFragment extends Fragment {
         tv_order_qty.setText("" + totalQty);
         BillItemAdapter billItemAdapter = new BillItemAdapter(getContext(), billItemArrayList);
         rv_item_bill.setAdapter(billItemAdapter);
-        tv_bill_total.setText("Qr : " + total_payable_amount_withqty);
+        tv_bill_total.setText("Qr : " + total_taxable_amount_withqty);
+        if(value>0){
+//        tx_discount.setVisibility(VISIBLE);
+        tv_bill_total_disc.setText("Qr : " + value);
+        }else if(total_item_discount_all>0){
+//            tx_discount.setVisibility(VISIBLE);
+            tv_bill_total_disc.setText("Qr : " + total_item_discount_all);
+
+        }
 
         //<editor-fold desc="PaymentType in bill">
         String paymentlist = SessionManagement.getStringValue(getContext(), AppConstant.PAYMENTLIST, "");
@@ -2785,6 +2962,131 @@ public class ServiceOrderFragment extends Fragment {
             Utility.OpenPrintingOptionDlg(mainActivity, myBinder);
             Toast.makeText(getContext(), getString(R.string.connect_first), Toast.LENGTH_SHORT).show();
         }
+    }
+    public static Dialog confirmDialog;
+    private void OpenConfirmDialog(String id, String orderid, String message) {
+        try {
+
+            if (confirmDialog != null && confirmDialog.isShowing())
+                return;
+
+            confirmDialog = new Dialog(getContext());
+            confirmDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            confirmDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            confirmDialog.setContentView(R.layout.dialog_alert_message);
+            TextView dialogTitle = confirmDialog.findViewById(R.id.tv_dlg_clr_cart);
+            dialogTitle.setText(message);
+            Button btnOk = confirmDialog.findViewById(R.id.btn_goto_cart);
+            Button btnno = confirmDialog.findViewById(R.id.btn_clear_cart);
+            btnno.setVisibility(GONE);
+
+            try {
+                btnOk.setText("ok");
+//                btnno.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_DLG_BTN_EXIT_NO).getLabel());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            btnOk.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    try {
+                        confirmDialog.dismiss();
+                        confirmDialog = null;
+//                        if (id.equals("")) {
+//                            CallApiCancelOrder(orderid);
+//                        } else {
+//                            CallApiCancelItem(id, orderid);
+//                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            btnno.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    confirmDialog.dismiss();
+                }
+            });
+            confirmDialog.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static Dialog confirmCartDialog;
+    private void OpenCartConfirmDialog(String id, String orderid, String message) {
+        try {
+
+            if (confirmCartDialog != null && confirmCartDialog.isShowing())
+                return;
+
+            confirmCartDialog = new Dialog(getContext());
+            confirmCartDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            confirmCartDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            confirmCartDialog.setContentView(R.layout.dialog_alert_message);
+            TextView dialogTitle = confirmCartDialog.findViewById(R.id.tv_dlg_clr_cart);
+            dialogTitle.setText(message);
+            Button btnOk = confirmCartDialog.findViewById(R.id.btn_goto_cart);
+            Button btnno = confirmCartDialog.findViewById(R.id.btn_clear_cart);
+//            btnno.setVisibility(GONE);
+
+            try {
+                btnOk.setText("ok");
+//                btnno.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_DLG_BTN_EXIT_NO).getLabel());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            btnOk.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    try {
+                        confirmCartDialog.dismiss();
+                        confirmCartDialog = null;
+//                        if (id.equals("")) {
+//                            CallApiCancelOrder(orderid);
+//                        } else {
+//                            CallApiCancelItem(id, orderid);
+//                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            btnno.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    cartArrayList.clear();
+                    SetCartAdapter();
+                    confirmCartDialog.dismiss();
+                }
+            });
+            confirmCartDialog.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void onItemClicked(int position) {
+        Log.d("testing","dialog ");
+        OpenConfirmDialog("position","fn","You don't have permission to give much discount ");
+
+    }
+
+    @Override
+    public void onItemvalue(double value, int index) {
+//        cartArrayList.get(index).getSummaryDetails().get(0).setDiscount(
+//                value);
+        Log.d("testing","for live  ");
+        total_item_discount_all=0;
+        total_item_discount=0;
+        CalculateCartTotal();
+
+//        SetCartAdapter();
+
     }
 
     public static class DownloadImageAsynktask extends AsyncTask<Void, Void, Void> {

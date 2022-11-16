@@ -6,7 +6,7 @@ import io.michaelrocks.paranoid.Obfuscate;
 public class AppConstant {
 
     //server url
-    public static final String BASE_URL = "https://www.alhadafrange.com/pos/api/v1.0/";
+    public static final String BASE_URL = "https://shooting.dgldigital.com/pos/api/v1.0/";
 
     public static final String LOGIN_URL = BASE_URL + "login.php";
     public static final String LOGOUT_URL = BASE_URL + "logout.php";
@@ -41,6 +41,7 @@ public class AppConstant {
     public static final String YEARID = "yearid";
     public static final String YEARNAME = "yearname";
     public static final String ACTIVEYEARID = "activeyearid";
+    public static final String UDISCOUNT = "udiscount";
 
 
     public static final String STORE_ID = "selected store id";
@@ -110,6 +111,8 @@ public class AppConstant {
 
 
     public static final String PAYMENTLIST = "added payment list array";
+    public static final String TEMPCART = "tempcart";
+
     public static final String LAST_ADDED_CUST_CONTACT = "last visited customers contact number";
 
     public static final String NAME_LOGIN = "user name login";
