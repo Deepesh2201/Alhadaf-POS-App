@@ -2419,8 +2419,6 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                 edt_discount.setFocusableInTouchMode(false); // user touches widget on phone with touch screen
                 edt_discount.setClickable(false);
                 tv_totdiscamt.setText("Qr ."+total_item_discount_all);
-
-
             }
             tv_lbl_payment_type.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_PAYMENT_DLG_TITLE_PAYMENT_TYPE).getLabel());
             tv_lbl_amount.setText(Utility.languageLabel(mainActivity, LabelMaster.LBL_PAYMENT_DLG_TITLE_AMOUNT).getLabel());
@@ -2933,9 +2931,8 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_taxamt0.setText("0");
         tv_netamt28.setText("0");
 
-
         tv_header_paytype.setVisibility(VISIBLE);
-        tv_prt_redeeamt.setText("Qr: " + String.format("%.2f", total_payable_amount_withqty));
+        tv_prt_redeeamt.setText("Qr: " + String.format("%.2f", total_item_discount_all));
         view1.setVisibility(VISIBLE);
         view2.setVisibility(VISIBLE);
 

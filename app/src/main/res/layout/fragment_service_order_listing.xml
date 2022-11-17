@@ -256,17 +256,6 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="@dimen/dp100dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:letterSpacing="0.05"
-                    android:text="Price"
-                    android:visibility="gone"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/dp16dp"
-                    android:textStyle="bold" />
-
-                <TextView
                     android:layout_width="@dimen/dp80dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -1115,7 +1104,7 @@
                     android:layout_marginTop="@dimen/dp2dp"
                     android:layout_weight="1"
                     android:letterSpacing="0.05"
-                    android:text="Total"
+                    android:text="Total Discount"
                     android:textColor="@color/black"
                     android:textSize="@dimen/dp14dp"
                     android:textStyle="bold" />
