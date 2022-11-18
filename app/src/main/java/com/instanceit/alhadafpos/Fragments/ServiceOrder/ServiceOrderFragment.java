@@ -241,7 +241,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         super.onViewCreated(view, savedInstanceState);
         Declaration(view);
         Initialization(view);
-//        checkcart();
+        checkcart();
 
         onBackPress(view);
 //        checkcart();
@@ -406,7 +406,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         mainActivity.edt_search.setText("");
         tv_goto_service_order.setVisibility(GONE);
         cv_operation_flow.setVisibility(GONE);
-        SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, "");
+//        SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, "");
         bundle = getArguments();
 
         if (bundle != null) {
