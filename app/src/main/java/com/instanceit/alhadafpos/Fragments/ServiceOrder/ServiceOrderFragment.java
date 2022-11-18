@@ -255,7 +255,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
     }
 
     private void Declaration(View view) {
-//        tx_discount = view.findViewById(R.id.tv_total_disc);
+        tx_discount = view.findViewById(R.id.tv_bill_total_lbl);
         rv_category = view.findViewById(R.id.rv_category);
         rv_item = view.findViewById(R.id.rv_item);
         rv_cart = view.findViewById(R.id.rv_cart);
@@ -2890,7 +2890,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         rv_item_bill.setAdapter(billItemAdapter);
         tv_bill_total.setText("Qr : " + total_taxable_amount_withqty);
         if(value>0){
-//        tx_discount.setVisibility(VISIBLE);
+        tx_discount.setVisibility(VISIBLE);
         tv_bill_total_disc.setText("Qr : " + value);
         }else if(total_item_discount_all>0){
 //            tx_discount.setVisibility(VISIBLE);
