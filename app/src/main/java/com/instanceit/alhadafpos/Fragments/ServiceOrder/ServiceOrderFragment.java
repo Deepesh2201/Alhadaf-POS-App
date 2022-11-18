@@ -241,7 +241,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         super.onViewCreated(view, savedInstanceState);
         Declaration(view);
         Initialization(view);
-        checkcart();
+//        checkcart();
 
         onBackPress(view);
 //        checkcart();
@@ -413,7 +413,10 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         if (bundle != null) {
             Action = bundle.getString(AppConstant.SERVICE_ORDER_ACTION);
             contact_no = bundle.getString(AppConstant.LAST_ADDED_CUST_CONTACT);
-            if (Action.equals(AppConstant.INSERT_SERVICE_ORDER_ACTION)) {
+
+
+                if (Action.equals(AppConstant.INSERT_SERVICE_ORDER_ACTION)) {
+                    checkcart();
                 formevent = "addright";
                 SessionManagement.savePreferences(getContext(), AppConstant.LAST_ADDED_CUST_CONTACT, contact_no);
                 ll_button.setVisibility(View.GONE);
