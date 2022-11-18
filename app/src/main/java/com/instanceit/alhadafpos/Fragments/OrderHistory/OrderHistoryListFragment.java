@@ -377,7 +377,7 @@ public class OrderHistoryListFragment extends Fragment {
     //</editor-fold>
 
     Dialog orderDialog = null;
-    TextView tv_t_qty, tv_total_payment, tv_t_price, tv_t_discount, tv_t_taxable, tv_t_vat, tv_t_amount, tv_member_name, tv_amount,
+    TextView tv_t_qty,tv_totaldisc, tv_total_payment, tv_t_price, tv_t_discount, tv_t_taxable, tv_t_vat, tv_t_amount, tv_member_name, tv_amount,
             tv_entry_by, tv_trs_id, tv_oder_date, tv_oder_note, tv_change_amount, tv_lbl_dlg_title, tv_lbl_amount_total, tv_lbl_entry_by,
             tv_lbl_orde_date, tv_lbl_order_note, tv_lbl_item_detail_title, tv_lbl_item, tv_lbl_type, tv_lbl_qty, tv_lbl_discount, tv_lbl_taxable,
             tv_lbl_vat, tv_lbl_amount_title, tv_lbl_total, tv_lbl_payment_detail_title, tv_lbl_payment_type, tv_lbl_change_amount, tv_lbl_total_amount, tv_lbl_issue_qty, tv_lbl_remainqty, tv_lbl_opration;
@@ -414,6 +414,7 @@ public class OrderHistoryListFragment extends Fragment {
         tv_t_amount = orderDialog.findViewById(R.id.tv_t_amount);
         iv_close = orderDialog.findViewById(R.id.iv_close);
         tv_total_payment = orderDialog.findViewById(R.id.tv_total_payment);
+        tv_totaldisc=orderDialog.findViewById(R.id.tv_totaldisc);
         rv_item_detail = orderDialog.findViewById(R.id.rv_item_detail);
         rv_payment = orderDialog.findViewById(R.id.rv_payment);
         tv_change_amount = orderDialog.findViewById(R.id.tv_change_amount);
@@ -523,6 +524,8 @@ public class OrderHistoryListFragment extends Fragment {
         int qty = 0;
         double price = 0.0;
         double discount = 0.0;
+        double totaldiscount = 0.0;
+
         double taxable = 0.0;
         double vat = 0.0;
         double amount = 0.0;
@@ -539,6 +542,7 @@ public class OrderHistoryListFragment extends Fragment {
             vat = vat + Double.parseDouble(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getIgsttaxamt());
             amount = amount + Double.parseDouble(orderHistorydetailArrayList.get(0).getStoreorderdetailinfo().get(i).getFinalprice());
         }
+        totaldiscount= Double.parseDouble(orderHistorydetailArrayList.get(0).getTotaldiscount());
 
         if (tv_t_qty != null && tv_t_price != null && tv_t_discount != null && tv_t_taxable != null && tv_t_vat != null && tv_t_amount != null) {
             tv_t_qty.setText(String.valueOf(qty));
@@ -555,6 +559,10 @@ public class OrderHistoryListFragment extends Fragment {
         if (tv_total_payment != null) {
             tv_total_payment.setText(String.format("%.2f", total));
         }
+        if (tv_totaldisc != null) {
+            tv_totaldisc.setText(String.format("%.2f", totaldiscount));
+        }
+
 
     }
 

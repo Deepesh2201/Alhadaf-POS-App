@@ -766,7 +766,149 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dp1dp"
                             android:background="@color/Gray_light" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp35dp"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:orientation="horizontal">
 
+                            <TextView
+                                android:id="@+id/tv_lbl_change_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="@dimen/dp10dp"
+                                android:gravity="right"
+                                android:paddingStart="@dimen/dp10dp"
+                                android:paddingTop="@dimen/dp5dp"
+                                android:paddingBottom="@dimen/dp5dp"
+                                android:text="Change Amount"
+                                android:textColor="@color/secondaryTextColor"
+                                android:textSize="@dimen/dp14dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="@dimen/dp10dp"
+                                android:gravity="right"
+                                android:paddingStart="@dimen/dp5dp"
+                                android:paddingTop="@dimen/dp5dp"
+                                android:paddingBottom="@dimen/dp5dp"
+                                android:text=":"
+                                android:textColor="@color/secondaryTextColor"
+                                android:textSize="@dimen/dp14dp" />
+
+                            <TextView
+                                android:id="@+id/tv_change_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="@dimen/dp10dp"
+                                android:gravity="right"
+                                android:paddingTop="@dimen/dp5dp"
+                                android:paddingEnd="@dimen/dp20dp"
+                                android:paddingBottom="@dimen/dp5dp"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="@dimen/dp14dp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp35dp"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp35dp"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_lbl_change_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="@dimen/dp10dp"
+                                    android:gravity="right"
+                                    android:paddingStart="@dimen/dp10dp"
+                                    android:paddingTop="@dimen/dp5dp"
+                                    android:paddingBottom="@dimen/dp5dp"
+                                    android:text="Total Discount "
+                                    android:textColor="@color/secondaryTextColor"
+                                    android:textSize="@dimen/dp14dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="@dimen/dp10dp"
+                                    android:gravity="right"
+                                    android:paddingStart="@dimen/dp5dp"
+                                    android:paddingTop="@dimen/dp5dp"
+                                    android:paddingBottom="@dimen/dp5dp"
+                                    android:text=":"
+                                    android:textColor="@color/secondaryTextColor"
+                                    android:textSize="@dimen/dp14dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_change_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="@dimen/dp10dp"
+                                    android:gravity="right"
+                                    android:paddingTop="@dimen/dp5dp"
+                                    android:paddingEnd="@dimen/dp20dp"
+                                    android:paddingBottom="@dimen/dp5dp"
+                                    android:textColor="@color/primaryTextColor"
+                                    android:textSize="@dimen/dp14dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp35dp"
+                                android:layout_weight="1"
+                                android:gravity="right|center"
+                                android:orientation="horizontal">
+
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="@dimen/dp10dp"
+                                    android:gravity="right"
+                                    android:paddingStart="@dimen/dp5dp"
+                                    android:paddingTop="@dimen/dp5dp"
+                                    android:paddingBottom="@dimen/dp5dp"
+                                    android:text=":"
+                                    android:textColor="@color/primaryTextColor"
+                                    android:textSize="@dimen/dp14dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_totaldisc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="right|center"
+                                    android:paddingEnd="@dimen/dp10dp"
+                                    android:text="0"
+                                    android:textColor="@color/primaryTextColor"
+                                    android:textSize="@dimen/dp16dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dp35dp"
@@ -873,6 +1015,7 @@
                             </LinearLayout>
 
                         </LinearLayout>
+
 
                     </LinearLayout>
 
