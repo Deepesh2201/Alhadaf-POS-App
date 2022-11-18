@@ -1673,7 +1673,7 @@ public class CreateOrderMainFragment extends Fragment implements AdapterCallback
         // Log.e("TAG", "manageCartScheme: " + new Gson().toJson(cartArrayList));
 
         Log.e("TAG", "AddToCart: " + new Gson().toJson(cartArrayList));
-        SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, new Gson().toJson(cartArrayList));
+        SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
 
         CalculateCartTotal();
 
