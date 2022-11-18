@@ -241,7 +241,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         super.onViewCreated(view, savedInstanceState);
         Declaration(view);
         Initialization(view);
-        checkcart();
+//        checkcart();
 
         onBackPress(view);
 //        checkcart();
