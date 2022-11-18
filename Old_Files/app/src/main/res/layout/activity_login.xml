@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:gravity="center_vertical">
+
+    &lt;!&ndash;    <FrameLayout&ndash;&gt;
+    &lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;
+    &lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;
+    &lt;!&ndash;        android:layout_gravity="center"&ndash;&gt;
+    &lt;!&ndash;        android:background="@drawable/bg_gradient"&ndash;&gt;
+    &lt;!&ndash;        android:rotation="180"&ndash;&gt;
+    &lt;!&ndash;        android:visibility="visible" />&ndash;&gt;
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp250dp"
+                android:layout_height="@dimen/dp250dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginTop="@dimen/dp20dp"
+                android:background="@drawable/bg_button_white"
+                android:backgroundTint="@color/trans_white1"
+                android:padding="@dimen/dp30dp"
+                android:src="@drawable/app_logo" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <FrameLayout
+                    android:id="@+id/rl_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dp60dp"
+                    android:layout_marginRight="@dimen/dp60dp"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/trans_white"
+                    android:elevation="@dimen/dp3dp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp30dp"
+                    android:visibility="visible">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp60dp"
+                            android:layout_marginLeft="@dimen/dp25dp"
+                            android:layout_marginRight="@dimen/dp25dp"
+                            android:layout_marginBottom="@dimen/dp20dp"
+                            app:cardCornerRadius="@dimen/dp10dp"
+                            app:cardElevation="@dimen/dp1dp">
+
+                            <EditText
+                                android:id="@+id/edt_username"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:drawableLeft="@drawable/ic_person"
+                                android:drawablePadding="@dimen/dp15dp"
+                                android:hint="Enter User Name"
+                                android:paddingStart="@dimen/dp18dp"
+                                android:singleLine="true"
+                                android:textSize="@dimen/dp20dp" />
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp60dp"
+                            android:layout_below="@+id/card_username"
+                            android:layout_marginLeft="@dimen/dp25dp"
+                            android:layout_marginTop="@dimen/dp10dp"
+                            android:layout_marginRight="@dimen/dp25dp"
+                            android:layout_marginBottom="@dimen/dp20dp"
+                            app:cardCornerRadius="@dimen/dp10dp"
+                            app:cardElevation="@dimen/dp1dp">
+
+                            <EditText
+                                android:id="@+id/edt_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:drawableLeft="@drawable/ic_lock"
+                                android:drawablePadding="@dimen/dp15dp"
+                                android:hint="Enter Password"
+                                android:inputType="textPassword"
+                                android:paddingStart="@dimen/dp18dp"
+                                android:singleLine="true"
+                                android:textSize="@dimen/dp20dp" />
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <CheckBox
+                            android:id="@+id/chk_showpass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/card_password"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginRight="@dimen/dp40dp"
+                            android:text="Show Password"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dp22dp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_btn_signin"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp60dp"
+                    android:layout_below="@id/rl_login"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/dp80dp"
+                    android:layout_marginTop="360dp"
+                    android:layout_marginRight="@dimen/dp80dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/button_sky"
+                    android:elevation="@dimen/dp5dp"
+                    android:gravity="center"
+                    android:src="@drawable/ic_left_arrow"
+                    android:text="SIGN IN"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp20dp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/dp250dp"
+        android:paddingTop="450dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp250dp"
+                android:layout_height="@dimen/dp250dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginTop="@dimen/dp20dp"
+                android:background="@drawable/bg_button_white"
+                android:backgroundTint="@color/trans_white1"
+                android:padding="@dimen/dp30dp"
+                android:src="@drawable/app_logo" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <FrameLayout
+                    android:id="@+id/rl_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dp60dp"
+                    android:layout_marginRight="@dimen/dp60dp"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/trans_white"
+                    android:elevation="@dimen/dp3dp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp30dp"
+                    android:visibility="visible">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp60dp"
+                            android:layout_marginLeft="@dimen/dp25dp"
+                            android:layout_marginRight="@dimen/dp25dp"
+                            android:layout_marginBottom="@dimen/dp20dp"
+                            app:cardCornerRadius="@dimen/dp10dp"
+                            app:cardElevation="@dimen/dp1dp">
+
+                            <EditText
+                                android:id="@+id/edt_username"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:drawableLeft="@drawable/ic_person"
+                                android:drawablePadding="@dimen/dp15dp"
+                                android:hint="Enter User Name"
+                                android:paddingStart="@dimen/dp18dp"
+                                android:singleLine="true"
+                                android:textSize="@dimen/dp20dp" />
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp60dp"
+                            android:layout_below="@+id/card_username"
+                            android:layout_marginLeft="@dimen/dp25dp"
+                            android:layout_marginTop="@dimen/dp10dp"
+                            android:layout_marginRight="@dimen/dp25dp"
+                            android:layout_marginBottom="@dimen/dp20dp"
+                            app:cardCornerRadius="@dimen/dp10dp"
+                            app:cardElevation="@dimen/dp1dp">
+
+                            <EditText
+                                android:id="@+id/edt_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:drawableLeft="@drawable/ic_lock"
+                                android:drawablePadding="@dimen/dp15dp"
+                                android:hint="Enter Password"
+                                android:inputType="textPassword"
+                                android:paddingStart="@dimen/dp18dp"
+                                android:singleLine="true"
+                                android:textSize="@dimen/dp20dp" />
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <CheckBox
+                            android:id="@+id/chk_showpass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/card_password"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginRight="@dimen/dp40dp"
+                            android:text="Show Password"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dp22dp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_btn_signin"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp60dp"
+                    android:layout_below="@id/rl_login"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/dp80dp"
+                    android:layout_marginTop="360dp"
+                    android:layout_marginRight="@dimen/dp80dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/button_sky"
+                    android:elevation="@dimen/dp5dp"
+                    android:gravity="center"
+                    android:src="@drawable/ic_left_arrow"
+                    android:text="SIGN IN"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp20dp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

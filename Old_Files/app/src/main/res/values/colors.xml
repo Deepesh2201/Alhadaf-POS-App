@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#211450</color>
+    <color name="colorPrimaryDark">#211450</color>
+    <color name="colorAccent">#7395BF</color>
+
+    <color name="main_blue">#0B2347</color>
+    <color name="button_sky">#7395BF</color>
+    <color name="button_skyblue">#4DA1E0</color>
+    <color name="tab_color">#A8BAD6</color>
+    <color name="alert_red">#EC343C</color>
+    <color name="colorBg">#F9F9F9</color>
+    <color name="colorBg2">#F1F1F1</color>
+    <color name="yellow">#E7B632</color>
+    <color name="trans_black2">#36BBBABA</color>
+    <color name="trans_black1">#BC171717</color>
+    <color name="gray_nav">#757575</color>
+    <color name="gray_nav_light">#9B9A9A</color>
+
+    <color name="bg_dash">#F5F5F5</color>
+
+    <color name="trans_White5">#0DFFFFFF</color>
+
+    <!--    <color name="colorBg">#EDEDED</color>-->
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Gray_light">#DFDFDF</color>
+    <color name="Gray">#CFCFCF</color>
+    <color name="Gray_dark">#A5A5A5</color>
+    <color name="transparent">#00000000</color>
+    <color name="red">#d32f2f</color>
+    <color name="selected_bg">#F5FFEF</color>
+    <color name="selected_orange_bg">#FFF1E7</color>
+    <color name="selected_border">#00C20D</color>
+    <color name="selected_bg_red">#FCDBD7</color>
+    <color name="selected_border_red">#CC0101</color>
+    <color name="light_green">#00AA00</color>
+
+    <color name="trans_black3">#99bfbebe</color>
+
+    <color name="loging_btn">#5C8CB4</color>
+
+
+    <color name="primaryTextColor">#4d4d4d</color>
+    <color name="secondaryTextColor">#7A7A7A</color>
+
+    <color name="facebook_blue">#3B5998</color>
+    <color name="google_red">#EA4335</color>
+
+
+    <color name="trans_disable">#809F9F9F</color>
+    <color name="trans_white">#99FFFFFF</color>
+    <color name="trans_white1">#B3FFFFFF</color>
+    <color name="trans_black_dark">#926C6B6B</color>
+    <color name="trans_black_dark1">#A3000000</color>
+    <color name="trans_black_dark2">#CD000000</color>d
+    <color name="trans_black_dark3">#99000000</color>d
+    <color name="trans_black_bottomsheet">#99000000</color>
+    <color name="trans_black4">#99000000</color>
+
+
+    <!--For Volley plus-->
+    <color name="photo_crop_dim_color">#cc000000</color>
+    <color name="photo_crop_highlight_color">#fff</color>
+
+</resources>

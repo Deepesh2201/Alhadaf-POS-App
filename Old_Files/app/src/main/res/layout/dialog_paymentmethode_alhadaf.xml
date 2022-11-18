@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/trans_black1"
+    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp40dp"
+        android:layout_marginTop="@dimen/dp20dp"
+        android:layout_marginRight="@dimen/dp40dp"
+        android:layout_marginBottom="@dimen/dp20dp"
+        app:cardCornerRadius="@dimen/dp15dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="Payment"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp25dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_header">
+
+                <LinearLayout
+                    android:id="@+id/ln_cpn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_select_payment_mode"
+                        android:layout_width="@dimen/dp350dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/dp10dp"
+                        android:background="@drawable/bg_border_dark"
+                        android:drawableRight="@drawable/ic_drop_down"
+                        android:drawableTint="@color/loging_btn"
+                        android:padding="10dp"
+                        android:text="Select Payment Mode"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/dp20dp" />
+
+                    <LinearLayout
+                        android:id="@+id/ln_ref_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp50dp"
+                        android:layout_marginTop="@dimen/dp10dp"
+                        android:layout_marginEnd="@dimen/dp50dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_rf_number"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:id="@+id/edt_rf_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableTint="@color/black"
+                                android:hint="Reference number *"
+                                android:inputType="text"
+                                android:textColor="@color/primaryTextColor"
+                                tools:ignore="SpeakableTextPresentCheck" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <EditText
+                                android:id="@+id/edt_order_note"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp100dp"
+                                android:drawableTint="@color/black"
+                                android:gravity="top"
+                                android:hint="Enter order notes"
+                                android:inputType="textMultiLine"
+                                android:maxLines="5"
+                                android:textColor="@color/primaryTextColor"
+                                tools:ignore="SpeakableTextPresentCheck" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp25dp"
+                        android:layout_marginTop="@dimen/dp55dp"
+                        android:layout_marginEnd="@dimen/dp25dp"
+                        android:layout_marginBottom="@dimen/dp35dp"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:id="@+id/ln_apply_cpn"
+                            android:layout_width="400dp"
+                            android:layout_height="@dimen/dp50dp"
+                            android:layout_gravity="right"
+                            android:layout_marginStart="@dimen/dp10dp"
+                            android:layout_marginTop="@dimen/dp10dp"
+                            android:layout_marginEnd="@dimen/dp10dp"
+                            android:layout_marginBottom="@dimen/dp10dp"
+                            android:orientation="horizontal"
+                            android:visibility="visible">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:background="@drawable/dashbackground">
+
+                                <EditText
+                                    android:id="@+id/edt_coupon_code"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@null"
+                                    android:hint="Apply Coupon"
+                                    android:inputType="textCapWords"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ln_btn_apply_code"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@color/loging_btn">
+
+                                <TextView
+                                    android:id="@+id/tv_lbl_apply_cpn"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="Apply"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/dp16dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ln_remove_coupon"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="@dimen/dp5dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/iv_coupon_done"
+                                android:layout_width="@dimen/dp35dp"
+                                android:layout_height="@dimen/dp35dp"
+                                android:padding="@dimen/dp1dp"
+                                android:src="@drawable/giftbox"
+                                app:tint="@color/loging_btn" />
+
+                            <TextView
+                                android:id="@+id/tv_message"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:textColor="@color/light_green"
+                                android:textSize="20dp" />
+
+
+                            <TextView
+                                android:id="@+id/tv_remove_code"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp5dp"
+                                android:background="@drawable/bg_border_dark"
+                                android:backgroundTint="@color/loging_btn"
+                                android:padding="@dimen/dp10dp"
+                                android:text="Remove coupon code"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12dp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/ln_cpn"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:gravity="bottom"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="@dimen/dp30dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_lbl_taxable_amount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dp20dp"
+                                    android:layout_marginRight="@dimen/dp15dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/dp10dp"
+                                    android:text="Taxable amount:"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/dp20dp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tv_taxable"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:gravity="center_vertical"
+                                    android:text="0"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/dp20dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="@dimen/dp30dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_lbl_cpn_discount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dp20dp"
+                                    android:layout_marginRight="@dimen/dp15dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/dp10dp"
+                                    android:text="Coupon Discount :"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/dp20dp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tv_cpn_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:gravity="center_vertical"
+                                    android:text="0"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/dp20dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="@dimen/dp30dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_lbl_tax_amount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dp20dp"
+                                    android:layout_marginRight="@dimen/dp15dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/dp10dp"
+                                    android:text="Tax Amount:"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/dp20dp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tv_tax_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:gravity="center_vertical"
+                                    android:text="0"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/dp20dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dp10dp">
+
+                                <TextView
+                                    android:id="@+id/tv_lbl_total"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dp20dp"
+                                    android:layout_marginRight="@dimen/dp10dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/dp10dp"
+                                    android:text="Total:"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/dp20dp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tv_total_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="@dimen/dp20dp"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:gravity="center_vertical"
+                                    android:text="0"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/dp20dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/btn_cancel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="48dp"
+                                    android:layout_margin="@dimen/dp10dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/bg_button_white"
+                                    android:backgroundTint="@color/button_sky"
+                                    android:text="Cancel"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/dp18dp"
+                                    android:textStyle="bold" />
+
+
+                                <Button
+                                    android:id="@+id/btn_submit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="48dp"
+                                    android:layout_margin="@dimen/dp10dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/bg_button_white"
+                                    android:backgroundTint="@color/main_blue"
+                                    android:text="Submit"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/dp18dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

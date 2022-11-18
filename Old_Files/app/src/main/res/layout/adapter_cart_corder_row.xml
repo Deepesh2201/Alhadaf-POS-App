@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10dp"
+        android:layout_marginTop="@dimen/dp5dp"
+        android:layout_marginRight="@dimen/dp10dp"
+        android:layout_marginBottom="@dimen/dp10dp"
+        android:elevation="@dimen/dp5dp"
+        app:cardCornerRadius="@dimen/dp10dp"
+        app:cardElevation="@dimen/dp5dp"
+        app:cardMaxElevation="@dimen/dp5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="@dimen/dp90dp"
+                android:layout_height="@dimen/dp90dp"
+                android:layout_centerVertical="true"
+                android:elevation="@dimen/dp0dp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/dp10dp">
+
+                <ImageView
+                    android:id="@+id/iv_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10dp"
+                android:layout_toRightOf="@id/card"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dp2dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_order_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="bottom"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="Name"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Qr.4000"
+                            android:textColor="@color/black"
+                            android:visibility="gone" />
+
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_item_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/ll_plusandminus" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_plusandminus"
+                            android:layout_width="@dimen/dp200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+                            <EditText
+                                android:layout_width="50dp"
+                                android:layout_height="35dp"
+                                android:hint="Disc %"
+                                android:id="@+id/item_dis"
+                                android:textColor="@color/black"
+                                android:inputType="number"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:maxLength="2"
+                                android:textSize="12dp"
+                                />
+
+                            <Button
+                                android:id="@+id/btn_minus"
+                                android:layout_width="@dimen/dp30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="@dimen/dp5dp"
+                                android:background="@drawable/circle"
+                                android:backgroundTint="@color/loging_btn"
+                                android:text="-"
+                                android:layout_marginRight="@dimen/dp10dp"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp15dp" />
+
+
+                            <EditText
+                                android:id="@+id/et_qty"
+                                android:layout_width="@dimen/dp60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                android:textColor="@color/black" />
+
+
+                            <Button
+                                android:id="@+id/btn_plus"
+                                android:layout_width="30dp"
+                                android:layout_height="@dimen/dp30dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="@dimen/dp5dp"
+                                android:background="@drawable/circle"
+                                android:backgroundTint="@color/loging_btn"
+                                android:text="+"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp15dp" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

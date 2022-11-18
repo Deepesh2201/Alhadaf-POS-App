@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/trans_black1"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp40dp"
+        android:layout_marginTop="@dimen/dp20dp"
+        android:layout_marginRight="@dimen/dp40dp"
+        android:layout_marginBottom="@dimen/dp20dp"
+        app:cardCornerRadius="@dimen/dp15dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/background_language" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_top" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/toolbar_white" />
+
+                <TextView
+                    android:id="@+id/tv_str_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/dp15dp"
+                    android:text="Hello"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/dp35dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_dlg_languages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/tv_dlg_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginLeft="@dimen/dp10dp"
+                    android:layout_marginRight="@dimen/dp10dp"
+                    android:layout_marginBottom="@dimen/dp10dp"
+                    android:background="@drawable/bg_button_white"
+                    android:elevation="@dimen/dp3dp"
+                    android:gravity="center"
+                    android:text="Continue"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/colorPrimary" />
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

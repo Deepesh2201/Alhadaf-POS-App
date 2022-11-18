@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35dp"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/dp7dp"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/tv_payment_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Payment Type"
+            android:paddingStart="@dimen/dp15dp"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/dp14dp" />
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20dp"
+            android:layout_weight="3"
+            android:gravity="right"
+            android:text="Amount"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/dp14dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1dp"
+        android:background="@color/Gray_light" />
+
+</LinearLayout>

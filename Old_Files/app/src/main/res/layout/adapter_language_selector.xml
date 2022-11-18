@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ln_main_width"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/ln_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp10dp"
+        android:background="@drawable/bg_white_border_gray"
+        android:elevation="@dimen/dp3dp"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp10dp"
+        android:gravity="center"
+        android:minHeight="@dimen/dp80dp"
+        android:paddingRight="@dimen/dp10dp"
+        android:paddingBottom="@dimen/dp10dp"
+        android:paddingTop="@dimen/dp5dp">
+
+        <RadioButton
+            android:id="@+id/rb_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <TextView
+                style="@style/AppTheme_Bold"
+                android:id="@+id/tv_lang"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35dp"
+                android:text="English"
+                android:gravity="center_vertical"
+                android:textColor="@color/main_blue"
+                android:textSize="@dimen/dp20dp" />
+
+
+            <TextView
+                android:id="@+id/tv_lang_eng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:layout_marginTop="@dimen/dp2dp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/dp16dp" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_language"
+            android:layout_width="@dimen/dp80dp"
+            android:layout_height="@dimen/dp80dp"
+            android:visibility="gone"
+            android:padding="@dimen/dp10dp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

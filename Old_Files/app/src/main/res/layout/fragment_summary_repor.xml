@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.Report.SaleReporFragment">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dp5dp"
+        android:layout_marginTop="@dimen/dp5dp"
+        android:layout_marginEnd="@dimen/dp5dp"
+        android:layout_marginBottom="@dimen/dp5dp"
+        app:cardElevation="@dimen/dp5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1dp"
+                android:background="@color/Gray_light" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35dp"
+                android:background="@color/loging_btn"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_lbl_index"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.6"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Index"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp12dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_item_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Item Name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp12dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_sale_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Sale QTY"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp12dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_return_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Return QTY"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp12dp" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="right"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Sale Amount"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp12dp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1dp"
+                android:background="@color/Gray_light" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_nodata"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="No Data found"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_report_listing"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible" />
+
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1dp"
+                android:background="@color/Gray_light" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.6"
+                    android:padding="@dimen/dp5dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/dp12dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Total"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/dp12dp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="@dimen/dp10dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_sale_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:padding="@dimen/dp5dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/dp12dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_return_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:padding="@dimen/dp5dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/dp12dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view1_line"
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="right"
+                    android:padding="@dimen/dp5dp"
+                    android:text=""
+                    android:layout_marginRight="@dimen/dp10dp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/dp12dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

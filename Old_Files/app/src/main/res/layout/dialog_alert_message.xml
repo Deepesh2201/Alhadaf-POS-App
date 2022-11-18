@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/idDialogParent"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="95dp"
+            android:background="@drawable/bg_border_dark"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_dlg_clr_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp40dp"
+                android:layout_marginBottom="@dimen/dp5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/dp16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp5dp">
+
+                <Button
+                    android:id="@+id/btn_goto_cart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp2dp"
+                    android:layout_marginRight="@dimen/dp5dp"
+                    android:layout_marginBottom="@dimen/dp2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border_dark"
+                    android:backgroundTint="@color/colorAccent"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp15dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp8dp"
+                    android:layout_marginBottom="@dimen/dp8dp"
+                    android:background="@color/colorPrimary" />
+
+                <Button
+                    android:id="@+id/btn_clear_cart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5dp"
+                    android:layout_marginRight="@dimen/dp2dp"
+                    android:layout_marginBottom="@dimen/dp2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border_dark"
+                    android:backgroundTint="@color/colorAccent"
+                    android:text="Exit"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp15dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logolin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp45dp"
+            android:background="@android:color/transparent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_dlg_logo"
+                android:layout_width="@dimen/dp80dp"
+                android:layout_height="@dimen/dp80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_border_dark"
+                android:padding="@dimen/dp10dp"
+                android:src="@drawable/app_logo" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
