@@ -1550,7 +1550,9 @@ public class CreateOrderMainFragment extends Fragment implements AdapterCallback
         taxamt = 0.0;
 
         try {
+            if(cartArrayList==null){
             cartArrayList = getCartArray();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             cartArrayList = new ArrayList<>();
