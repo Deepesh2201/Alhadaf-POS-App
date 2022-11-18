@@ -406,7 +406,8 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         mainActivity.edt_search.setText("");
         tv_goto_service_order.setVisibility(GONE);
         cv_operation_flow.setVisibility(GONE);
-//        SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, "");
+        SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, "");
+
         bundle = getArguments();
 
         if (bundle != null) {
@@ -508,7 +509,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                     }
                 }
                 SessionManagement.savePreferences(mainActivity, AppConstant.ITEMCARTARRAY, new Gson().toJson(cartArrayList));
-                SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
+                SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, "");
 
 //                Log.e("update_array", "Initialization: " + SessionManagement.getStringValue(mainActivity, AppConstant.ITEMCARTARRAY, ""));
                 CalculateCartTotal();
