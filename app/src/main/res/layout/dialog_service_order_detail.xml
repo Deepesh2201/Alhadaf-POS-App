@@ -766,55 +766,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dp1dp"
                             android:background="@color/Gray_light" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/dp35dp"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/tv_lbl_change_amount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginEnd="@dimen/dp10dp"
-                                android:gravity="right"
-                                android:paddingStart="@dimen/dp10dp"
-                                android:paddingTop="@dimen/dp5dp"
-                                android:paddingBottom="@dimen/dp5dp"
-                                android:text="Change Amount"
-                                android:textColor="@color/secondaryTextColor"
-                                android:textSize="@dimen/dp14dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginEnd="@dimen/dp10dp"
-                                android:gravity="right"
-                                android:paddingStart="@dimen/dp5dp"
-                                android:paddingTop="@dimen/dp5dp"
-                                android:paddingBottom="@dimen/dp5dp"
-                                android:text=":"
-                                android:textColor="@color/secondaryTextColor"
-                                android:textSize="@dimen/dp14dp" />
-
-                            <TextView
-                                android:id="@+id/tv_change_amount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginEnd="@dimen/dp10dp"
-                                android:gravity="right"
-                                android:paddingTop="@dimen/dp5dp"
-                                android:paddingEnd="@dimen/dp20dp"
-                                android:paddingBottom="@dimen/dp5dp"
-                                android:textColor="@color/primaryTextColor"
-                                android:textSize="@dimen/dp14dp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dp35dp"
