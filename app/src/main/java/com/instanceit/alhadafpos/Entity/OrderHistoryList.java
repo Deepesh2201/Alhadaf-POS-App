@@ -45,10 +45,10 @@ public class OrderHistoryList {
     @SerializedName("totalpayableamt")
     @Expose
     private String totalpayableamt;
-    @SerializedName("totalpaidamount")
+    @SerializedName("totaldiscount")
     @Expose
     private String totaldiscount;
-    @SerializedName("totaldiscount")
+    @SerializedName("totalpaidamount")
     @Expose
     private String totalpaidamount;
     @SerializedName("totalchangeamount")
