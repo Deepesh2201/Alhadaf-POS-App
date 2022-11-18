@@ -1530,7 +1530,7 @@ public class CreateOrderMainFragment extends Fragment implements AdapterCallback
         ArrayList<MyCart> temp_cartArrayList = new ArrayList<>();
         Type listType = new TypeToken<ArrayList<MyCart>>() {
         }.getType();
-        temp_cartArrayList = new Gson().fromJson(SessionManagement.getStringValue(mainActivity, AppConstant.ITEMCARTARRAY, ""), listType);
+        temp_cartArrayList = new Gson().fromJson(SessionManagement.getStringValue(mainActivity, AppConstant.TEMPCART, ""), listType);
         if (temp_cartArrayList == null) {
             temp_cartArrayList = new ArrayList<>();
         }
