@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:background="@color/trans_black1"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="700dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp40dp"
+        android:layout_marginTop="@dimen/dp20dp"
+        android:layout_marginRight="@dimen/dp40dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/dp20dp"
+        app:cardCornerRadius="@dimen/dp15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button_white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_holdorder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp70dp"
+                android:background="?attr/colorPrimary"
+                android:gravity="center"
+                android:text="PROCEED ORDER"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/idTvDialogMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp20dp"
+                android:layout_marginBottom="@dimen/dp5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Are you sure you want to Proceed this order?"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/dp16dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="visible"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dp5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Total Amount:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp18dp" />
+
+                <TextView
+                    android:id="@+id/tv_tot_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dp5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp19dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_cancel_dlg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp45dp"
+                    android:layout_margin="@dimen/dp10dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/Gray_dark"
+                    android:text="Cancel"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp18dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_proceed_dlg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp45dp"
+                    android:layout_margin="@dimen/dp10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_white"
+                    android:text="Proceed"
+                    android:backgroundTint="@color/main_blue"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp18dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

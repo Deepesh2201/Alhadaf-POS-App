@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="90"
+    android:toDegrees="90" >
+    <shape android:shape="line" >
+        <stroke
+            android:width="@dimen/dp1dp"
+            android:dashGap="@dimen/dp10dp"
+            android:dashWidth="@dimen/dp10dp"
+            android:color="@color/button_sky" />
+    </shape>
+
+</rotate>

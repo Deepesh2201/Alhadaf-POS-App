@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.OrderHistory.OrderHistoryListFragment">
+
+    <LinearLayout
+        android:id="@+id/ln_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45dp"
+            android:layout_marginLeft="@dimen/dp5dp"
+            android:layout_marginTop="@dimen/dp5dp"
+            android:layout_marginRight="@dimen/dp5dp"
+            android:layout_marginBottom="@dimen/dp2dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_border_dark"
+            android:elevation="@dimen/dp2dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/edt_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Search..."
+                android:imeOptions="actionSearch"
+                android:paddingLeft="@dimen/dp10dp"
+                android:singleLine="true"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/dp16dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="45dp"
+            android:layout_height="@dimen/dp45dp"
+            android:layout_marginTop="@dimen/dp5dp"
+            android:layout_marginRight="@dimen/dp3dp"
+            android:background="@drawable/bg_border_dark"
+            android:elevation="@dimen/dp2dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dp10dp"
+                android:src="@drawable/ic_search_black"
+                app:tint="?attr/colorPrimaryDark" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dp5dp"
+        android:layout_marginTop="@dimen/dp55dp"
+        android:layout_marginEnd="@dimen/dp5dp"
+        android:layout_marginBottom="@dimen/dp5dp"
+        app:cardCornerRadius="@dimen/dp5dp"
+        app:cardElevation="@dimen/dp5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1dp"
+                android:background="@color/Gray_light" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35dp"
+                android:background="@color/loging_btn"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_lbl_index"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.17"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Index"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_tran_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Transaction ID"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_order_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Order No"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_ord_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Order Date"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Amount"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_lbl_member"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Member"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+
+                <TextView
+                    android:id="@+id/tv_lbl_ent_by"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:padding="@dimen/dp5dp"
+                    android:text="Enter BY"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp" />
+
+                <View
+                    android:layout_width="@dimen/dp1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp5dp"
+                    android:background="@color/Gray_light" />
+
+
+                <TextView
+                    android:id="@+id/tv_lbl_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:paddingTop="@dimen/dp5dp"
+                    android:paddingEnd="@dimen/dp10dp"
+                    android:paddingBottom="@dimen/dp5dp"
+                    android:text="More"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp16dp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1dp"
+                android:background="@color/Gray_light" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swi_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_nodata"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="No Data found!!"
+                        android:visibility="visible" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_order_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

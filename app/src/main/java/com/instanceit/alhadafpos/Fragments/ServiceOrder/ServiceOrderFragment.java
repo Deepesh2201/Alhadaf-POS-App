@@ -773,6 +773,8 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                         total_item_discount=0;
 
                         SessionManagement.savePreferences(getContext(), AppConstant.ITEMCARTARRAY, "");
+                        SessionManagement.savePreferences(getContext(), AppConstant.TEMPCART, "");
+
                         SessionManagement.savePreferences(getContext(), AppConstant.PAYMENTLIST, "");
                         getCartArray();
                         SetCartAdapter();

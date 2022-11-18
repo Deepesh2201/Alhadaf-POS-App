@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_cashnote"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40dp"
+        android:layout_margin="@dimen/dp5dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_button_white"
+        android:backgroundTint="@color/colorPrimary"
+        android:gravity="center"
+        android:text="00"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp19dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

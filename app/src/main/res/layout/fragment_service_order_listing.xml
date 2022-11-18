@@ -51,17 +51,17 @@
                     android:textSize="@dimen/dp15dp"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/tv_contact_number"
-                    android:layout_width="512dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:inputType="textMultiLine"
-                    android:letterSpacing="0.05"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/dp15dp"
-                    android:textStyle="bold"
-                    tools:ignore="TouchTargetSizeCheck" />
+            <TextView
+                android:id="@+id/tv_contact_number"
+                android:layout_width="512dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:letterSpacing="0.05"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp15dp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                 <TextView
                     android:id="@+id/tv_gst"
@@ -251,6 +251,17 @@
                     android:layout_weight="1"
                     android:letterSpacing="0.05"
                     android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/dp100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:letterSpacing="0.05"
+                    android:text="Price"
+                    android:visibility="gone"
                     android:textColor="@color/black"
                     android:textSize="@dimen/dp16dp"
                     android:textStyle="bold" />
@@ -1104,7 +1115,7 @@
                     android:layout_marginTop="@dimen/dp2dp"
                     android:layout_weight="1"
                     android:letterSpacing="0.05"
-                    android:text="Total Discount"
+                    android:text="Total"
                     android:textColor="@color/black"
                     android:textSize="@dimen/dp14dp"
                     android:textStyle="bold" />

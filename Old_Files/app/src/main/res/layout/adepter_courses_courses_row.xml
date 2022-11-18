@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_course_detail"
+        android:layout_width="250dp"
+        android:layout_height="@dimen/dp250dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:elevation="@dimen/dp3dp"
+        app:cardCornerRadius="@dimen/dp10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp100dp"
+                android:layout_gravity="bottom"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/dp2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_course_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp10dp"
+                        android:layout_marginTop="@dimen/dp10dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/dp14dp" />
+
+                    <TextView
+                        android:id="@+id/tv_course_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp10dp"
+                        android:layout_marginBottom="@dimen/dp30dp"
+                        android:ellipsize="end"
+                        android:textColor="@color/secondaryTextColor"
+                        android:textSize="@dimen/dp12dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_add_to_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|bottom"
+                    android:layout_marginTop="@dimen/dp20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="@dimen/dp5dp"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/main_blue"
+                    android:orientation="horizontal"
+                    android:text="add to cart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tv_add_to_cart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dp5dp"
+                        android:textSize="@dimen/dp12dp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

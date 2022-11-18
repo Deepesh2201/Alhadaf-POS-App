@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10dp"
+        android:layout_marginTop="@dimen/dp5dp"
+        android:layout_marginRight="@dimen/dp10dp"
+        android:layout_marginBottom="@dimen/dp10dp"
+        android:elevation="@dimen/dp5dp"
+        fresco:cardCornerRadius="@dimen/dp10dp"
+        fresco:cardElevation="@dimen/dp5dp"
+        fresco:cardMaxElevation="@dimen/dp5dp">
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/dp5dp"
+            android:layout_weight="1"
+            android:background="@drawable/price_background"
+            android:elevation="@dimen/dp5dp"
+            android:padding="@dimen/dp5dp"
+            android:text="$ 30.00"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/itemlin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                fresco:cardCornerRadius="@dimen/dp10dp">
+
+                <ImageView
+                    android:id="@+id/iv_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp140dp"
+                    android:minHeight="@dimen/dp120dp"
+                    android:scaleType="fitCenter" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tv_itemname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="@dimen/dp5dp"
+                android:layout_marginBottom="@dimen/dp5dp"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="Test Item 1"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_outofstock_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/trans_black4"
+            android:gravity="center"
+            android:text="OUT OF STOCK"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp20dp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

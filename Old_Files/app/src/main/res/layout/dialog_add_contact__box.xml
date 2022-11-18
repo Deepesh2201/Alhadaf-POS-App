@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ln_dlg_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+
+    <RelativeLayout
+        android:id="@+id/rl_dialog_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5dp"
+        android:layout_marginRight="@dimen/dp5dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/bg_border_dark"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_hint_enter_contact_number"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp35dp"
+                android:layout_marginTop="@dimen/dp50dp"
+                android:layout_marginEnd="@dimen/dp35dp"
+                android:layout_marginBottom="@dimen/dp10dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/edt_contact_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp50dp"
+                    android:drawableTint="@color/black"
+                    android:gravity="center"
+                    android:hint="Enter contact number"
+                    android:inputType="number"
+                    android:textColor="@color/primaryTextColor"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dp5dp">
+
+                <Button
+                    android:id="@+id/btn_cancel_contact_dgl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dp30dp"
+                    android:layout_marginTop="@dimen/dp10dp"
+                    android:layout_marginRight="@dimen/dp10dp"
+                    android:layout_marginBottom="@dimen/dp10dp"
+                    android:layout_weight="1"
+                    android:elevation="@dimen/dp5dp"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/Gray"
+                    android:text="cancel"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/dp15dp" />
+
+                <Button
+                    android:id="@+id/btnyes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="@dimen/dp5dp"
+                    android:layout_marginLeft="@dimen/dp10dp"
+                    android:layout_marginTop="@dimen/dp10dp"
+                    android:layout_marginRight="@dimen/dp30dp"
+                    android:layout_marginBottom="@dimen/dp10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_white"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="submit"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp15dp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/logolin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp40dp"
+            android:background="@android:color/transparent"
+            android:gravity="center">
+
+
+            <ImageView
+                android:id="@+id/iv_gif"
+                android:layout_width="@dimen/dp120dp"
+                android:layout_height="@dimen/dp100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/loader"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="@dimen/dp100dp"
+                android:layout_height="@dimen/dp90dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_border_dark"
+                android:padding="@dimen/dp10dp"
+                android:src="@drawable/app_logo_icon" />
+
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

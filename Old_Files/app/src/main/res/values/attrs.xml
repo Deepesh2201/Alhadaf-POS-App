@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--Animated Recycler View-->
+    <declare-styleable name="AnimatedRecyclerView">
+        <attr name="layoutAnimation" format="reference" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="layoutManagerOrientation" format="integer">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="layoutManagerReverse" format="boolean" />
+        <attr name="layoutManagerType" format="integer">
+            <enum name="linear" value="0" />
+            <enum name="grid" value="1" />
+        </attr>
+        <attr name="gridLayoutManagerColumns" format="integer" />
+    </declare-styleable>
+
+
+    <!--OTP View -->
+    <declare-styleable name="OtpTextView">
+        <attr name="android:textColor" />
+        <attr name="otp" format="string" />
+        <attr name="hide_otp" format="boolean" />
+        <attr name="hide_otp_drawable" format="reference" />
+        <attr name="length" format="integer" />
+        <attr name="width" format="dimension" />
+        <attr name="height" format="dimension" />
+        <attr name="box_margin" format="dimension" />
+        <attr name="box_margin_left" format="dimension" />
+        <attr name="box_margin_right" format="dimension" />
+        <attr name="box_margin_top" format="dimension" />
+        <attr name="box_margin_bottom" format="dimension" />
+        <attr name="bar_height" format="dimension" />
+        <attr name="bar_enabled" format="boolean" />
+        <attr name="otp_box_background" format="reference" />
+        <attr name="otp_box_background_active" format="reference" />
+        <attr name="otp_box_background_inactive" format="reference" />
+        <attr name="otp_box_background_success" format="reference" />
+        <attr name="otp_box_background_error" format="reference" />
+        <attr name="bar_margin" format="dimension" />
+        <attr name="bar_margin_bottom" format="dimension" />
+        <attr name="bar_margin_right" format="dimension" />
+        <attr name="bar_margin_left" format="dimension" />
+        <attr name="bar_margin_top" format="dimension" />
+        <attr name="otp_text_size" format="dimension" />
+        <attr name="bar_active_color" format="color" />
+        <attr name="bar_inactive_color" format="color" />
+        <attr name="bar_error_color" format="color" />
+        <attr name="bar_success_color" format="color" />
+        <attr name="text_typeface" format="string" />
+    </declare-styleable>
+
+
+    <declare-styleable name="NavigationTabBar">
+        <attr name="ntb_titled" format="boolean" />
+        <attr name="ntb_badged" format="boolean" />
+        <attr name="ntb_scaled" format="boolean" />
+        <attr name="ntb_tinted" format="boolean" />
+        <attr name="ntb_swiped" format="boolean" />
+        <attr name="ntb_badge_use_typeface" format="boolean" />
+        <attr name="ntb_title_size" format="dimension" />
+        <attr name="ntb_title_mode" format="enum">
+            <enum name="all" value="0" />
+            <enum name="active" value="1" />
+        </attr>
+        <attr name="ntb_badge_size" format="dimension" />
+        <attr name="ntb_badge_position" format="enum">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="ntb_badge_gravity" format="enum">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+        </attr>
+        <attr name="ntb_badge_bg_color" format="color" />
+        <attr name="ntb_badge_title_color" format="color" />
+        <attr name="ntb_typeface" format="string" />
+        <attr name="ntb_corners_radius" format="dimension" />
+        <attr name="ntb_icon_size_fraction" format="float" />
+        <attr name="ntb_animation_duration" format="integer" />
+        <attr name="ntb_inactive_color" format="color" />
+        <attr name="ntb_active_color" format="color" />
+        <attr name="ntb_active_iconcolor" format="color" />
+        <attr name="ntb_bg_color" format="color" />
+        <attr name="ntb_preview_colors" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="MaxHeightLayout">
+        <attr name="mhl_HeightRatio" format="reference|float" />
+        <attr name="mhl_HeightDimen" format="reference|dimension" />
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="PageIndicatorView">
+        <attr name="piv_orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="piv_viewPager" format="reference" />
+        <attr name="piv_select" format="integer" />
+
+        <attr name="piv_count" format="integer" />
+        <attr name="piv_dynamicCount" format="boolean" />
+
+        <attr name="piv_radius" format="dimension" />
+        <attr name="piv_padding" format="dimension" />
+        <attr name="piv_strokeWidth" format="dimension" />
+        <attr name="piv_scaleFactor" format="float" />
+        <attr name="piv_autoVisibility" format="boolean" />
+
+        <attr name="piv_unselectedColor" format="color" />
+        <attr name="piv_selectedColor" format="color" />
+
+        <attr name="piv_interactiveAnimation" format="boolean" />
+        <attr name="piv_animationDuration" format="integer" />
+        <attr name="piv_animationType">
+            <enum name="none" value="0" />
+            <enum name="color" value="1" />
+            <enum name="scale" value="2" />
+            <enum name="worm" value="3" />
+            <enum name="slide" value="4" />
+            <enum name="fill" value="5" />
+            <enum name="thinWorm" value="6" />
+            <enum name="drop" value="7" />
+            <enum name="swap" value="8" />
+            <enum name="scale_down" value="9" />
+        </attr>
+        <attr name="piv_rtl_mode">
+            <enum name="on" value="0" />
+            <enum name="off" value="1" />
+            <enum name="auto" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SliderView">
+
+        <attr name="sliderIndicatorOrientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="sliderIndicatorRadius" format="dimension" />
+        <attr name="sliderIndicatorPadding" format="dimension" />
+        <attr name="sliderIndicatorMargin" format="dimension" />
+        <attr name="sliderIndicatorMarginLeft" format="dimension" />
+        <attr name="sliderIndicatorMarginRight" format="dimension" />
+        <attr name="sliderIndicatorMarginTop" format="dimension" />
+        <attr name="sliderIndicatorMarginBottom" format="dimension" />
+
+        <attr name="sliderIndicatorGravity">
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+            <flag name="clip_horizontal" value="8" />
+            <flag name="clip_vertical" value="128" />
+            <flag name="end" value="8388613" />
+            <flag name="fill" value="119" />
+            <flag name="fill_horizontal" value="7" />
+            <flag name="fill_vertical" value="112" />
+            <flag name="left" value="3" />
+            <flag name="right" value="5" />
+            <flag name="start" value="8388611" />
+            <flag name="top" value="48" />
+        </attr>
+
+        <attr name="sliderIndicatorUnselectedColor" format="color" />
+        <attr name="sliderIndicatorSelectedColor" format="color" />
+        <attr name="sliderIndicatorAnimationDuration" format="integer" />
+        <attr name="sliderAnimationDuration" format="integer" />
+
+        <attr name="sliderIndicatorRtlMode">
+            <enum name="on" value="0" />
+            <enum name="off" value="1" />
+            <enum name="auto" value="2" />
+        </attr>
+
+        <attr name="sliderScrollTimeInSec" format="integer" />
+        <attr name="sliderAutoCycleEnabled" format="boolean" />
+        <attr name="sliderStartAutoCycle" format="boolean" />
+
+        <attr name="sliderAutoCycleDirection">
+            <enum name="right" value="0" />
+            <enum name="left" value="1" />
+            <enum name="back_and_forth" value="2" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="ShimmerRecyclerView">
+        <attr name="shimmer_demo_layout" format="reference" />
+        <attr name="shimmer_demo_child_count" format="integer|reference" />
+        <attr name="shimmer_demo_layout_manager_type" format="enum">
+            <enum name="linear_vertical" value="0" />
+            <enum name="linear_horizontal" value="1" />
+            <enum name="grid" value="2" />
+        </attr>
+        <attr name="shimmer_demo_grid_child_count" format="integer|reference" />
+        <attr name="shimmer_demo_shimmer_color" format="color|reference" />
+        <attr name="shimmer_demo_angle" format="integer|reference" />
+        <attr name="shimmer_demo_view_holder_item_background" format="color|reference" />
+        <attr name="shimmer_demo_duration" format="integer|reference" />
+        <attr name="shimmer_demo_reverse_animation" format="boolean|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ShimmerLayout">
+        <attr name="shimmer_color" format="color|reference" />
+        <attr name="shimmer_animation_duration" format="integer|reference" />
+        <attr name="shimmer_auto_start" format="boolean|reference" />
+        <attr name="shimmer_angle" format="integer|reference" />
+        <attr name="shimmer_mask_width" format="float|reference" />
+        <attr name="shimmer_gradient_center_color_width" format="float|reference" />
+        <attr name="shimmer_reverse_animation" format="boolean|reference" />
+    </declare-styleable>
+    <attr name="colorNavigationItem" format="color" />
+    <attr name="colorNavigationItemSelected" format="color" />
+
+    <attr name="drawableNavigationItemBackground" format="reference" />
+
+
+    <!--Zoom ImageView-->
+    <declare-styleable name="ZoomageView">
+        <attr name="zoomage_zoomable" format="boolean" />
+        <attr name="zoomage_translatable" format="boolean" />
+        <attr name="zoomage_restrictBounds" format="boolean" />
+        <attr name="zoomage_animateOnReset" format="boolean" />
+        <attr name="zoomage_doubleTapToZoom" format="boolean" />
+        <attr name="zoomage_doubleTapToZoomScaleFactor" format="float" />
+        <attr name="zoomage_autoCenter" format="boolean" />
+        <attr name="zoomage_minScale" format="float" />
+        <attr name="zoomage_maxScale" format="float" />
+        <attr name="zoomage_autoResetMode" format="enum">
+            <enum name="UNDER" value="0" />
+            <enum name="OVER" value="1" />
+            <enum name="ALWAYS" value="2" />
+            <enum name="NEVER" value="3" />
+        </attr>
+    </declare-styleable>
+
+
+    <!--Rotate View-->
+    <declare-styleable name="RotateLayout">
+        <attr name="angle" format="integer" />
+    </declare-styleable>
+
+
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+      primary. -->
+    <attr name="colorOnPrimary" format="color" />
+    <!-- The inverse color of colorPrimary. -->
+    <attr name="colorPrimaryInverse" format="color" />
+    <!-- A tonal variation of the primary color suitable for background color of container views. -->
+    <attr name="colorPrimaryContainer" format="color" />
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         the primary container color. -->
+    <attr name="colorOnPrimaryContainer" format="color" />
+
+    <!-- The secondary branding color for the app, usually a bright complement to the primary
+         branding color. -->
+    <attr name="colorSecondary" format="color" />
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         secondary. -->
+    <attr name="colorOnSecondary" format="color" />
+    <!-- A tonal variation of the secondary color suitable for background color of container views. -->
+    <attr name="colorSecondaryContainer" format="color" />
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         the secondary container color. -->
+    <attr name="colorOnSecondaryContainer" format="color" />
+
+    <!-- The tertiary branding color for the app, usually a bright complement to the primary
+         branding color. -->
+    <attr name="colorTertiary" format="color" />
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         tertiary. -->
+    <attr name="colorOnTertiary" format="color" />
+    <!-- A tonal variation of the tertiary color suitable for background color of container views. -->
+    <attr name="colorTertiaryContainer" format="color" />
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         the tertiary container color. -->
+    <attr name="colorOnTertiaryContainer" format="color" />
+
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         background. -->
+    <attr name="colorOnBackground" />
+
+    <!-- The color of surfaces such as cards, sheets, menus. -->
+    <attr name="colorSurface" format="color" />
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         surface. -->
+    <attr name="colorOnSurface" format="color" />
+    <!-- A tonal variation of the surface color. -->
+    <attr name="colorSurfaceVariant" format="color" />
+    <!-- A tonal variation of the on surface color that passes accessibility guidelines for
+         text/iconography when drawn on top of surface variant. -->
+    <attr name="colorOnSurfaceVariant" format="color" />
+    <!-- The surface inverse color, useful for inverted backgrounds. -->
+    <attr name="colorSurfaceInverse" format="color" />
+    <!-- The "on surface" inverse color, useful for inverted backgrounds. -->
+    <attr name="colorOnSurfaceInverse" format="color" />
+
+    <!-- A color meant to be used in element outlines. -->
+    <attr name="colorOutline" format="color" />
+
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         error. -->
+    <attr name="colorOnError" format="color" />
+    <!-- A tonal variation of the error color suitable for background color of container views. -->
+    <attr name="colorErrorContainer" format="color" />
+    <!-- A tonal variation of the on error color that passes accessibility guidelines for
+         text/iconography when drawn on top of error container. -->
+    <attr name="colorOnErrorContainer" format="color" />
+
+    <!-- A color that corresponds to colorPrimary in light themes and colorSurface in dark
+         themes. -->
+    <attr name="colorPrimarySurface" format="color" />
+    <!-- A color that passes accessibility guidelines for text/iconography when drawn on top of
+         colorPrimarySurface. -->
+    <attr name="colorOnPrimarySurface" format="color" />
+
+    <!-- Container colors. -->
+    <!-- These container colors are only meant to be used in component-level
+         styles and resources as a means of indirection. They enable remapping
+         to other attrs like primary, secondary, surface, etc. -->
+    <!-- Container background color. -->
+    <attr name="colorContainer" format="color" />
+
+    <!-- Color to use for foreground elements on top of colorContainer. -->
+    <attr name="colorOnContainer" format="color" />
+
+    <!-- The scrim background that appears below modals and expanded navigation menus.
+         The background can either be a color or a bitmap drawable with tileMode set to repeat. -->
+    <attr name="scrimBackground" format="color|reference" />
+
+    <!-- Internal flag used to denote that a theme is a Theme.MaterialComponents theme or a
+         Theme.MaterialComponents.Bridge theme. -->
+    <attr name="isMaterialTheme" format="boolean" />
+
+    <!-- Internal flag used to denote that a theme is a Theme.Material3 theme. -->
+    <attr name="isMaterial3Theme" format="boolean" />
+
+    <!-- When set to true, the material selection controls will tint themselves according to
+         Material Theme colors. When set to false, Material Theme colors will
+         be ignored. This value should be set to false when using custom drawables
+         that should not be tinted. This value is ignored if a buttonTint is set.
+         Set this attribute on your styles for each selection control.-->
+    <attr name="useMaterialThemeColors" format="boolean" />
+
+    <!-- The default dynamic color theme overlay to use when applying dynamic colors. -->
+    <attr name="dynamicColorThemeOverlay" format="reference" />
+
+    <!-- Deprecated. -->
+
+    <!-- A tonal variation of the primary color. -->
+    <attr name="colorPrimaryVariant" format="color" />
+    <!-- A tonal variation of the secondary color. -->
+    <attr name="colorSecondaryVariant" format="color" />
+
+
+</resources>
