@@ -332,8 +332,9 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_bill_sgst = view.findViewById(R.id.tv_bill_sgst);
         tv_bill_total = view.findViewById(R.id.tv_bill_total);
         tv_bill_total_disc = view.findViewById(R.id.tv_bill_discount);
+
         tv_bill_discount= view.findViewById(R.id.tv_bill_discount);
-//        ll_bill_discount=view.findViewById(R.id.ll_bill_discount);
+        ll_bill_discount=view.findViewById(R.id.ll_bill_discount);
 
         tv_gst = view.findViewById(R.id.tv_gst);
         tv_address = view.findViewById(R.id.tv_address);
@@ -2304,13 +2305,11 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_total_payable_amount.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
 
         if(total_item_discount_all>0){
-//        ll_bill_discount.setVisibility(VISIBLE);
+        ll_bill_discount.setVisibility(VISIBLE);
         tv_bill_discount.setText("Qr." + String.format("%.2f", total_item_discount_all));
         }
         else{
-            tv_bill_discount.setText("Qr." + String.format("%.2f", 0));
-
-//            ll_bill_discount.setVisibility(GONE);
+            ll_bill_discount.setVisibility(GONE);
         }
 
         SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
@@ -2896,13 +2895,11 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         BillItemAdapter billItemAdapter = new BillItemAdapter(getContext(), billItemArrayList);
         rv_item_bill.setAdapter(billItemAdapter);
         tv_bill_total.setText("Qr : " + total_taxable_amount_withqty);
-        tv_bill_total_disc.setText("Qr : " + total_item_discount_all);
-
         if(value>0){
         tx_discount.setVisibility(VISIBLE);
         tv_bill_total_disc.setText("Qr : " + value);
         }else if(total_item_discount_all>0){
-            tx_discount.setVisibility(VISIBLE);
+//            tx_discount.setVisibility(VISIBLE);
             tv_bill_total_disc.setText("Qr : " + total_item_discount_all);
 
         }
