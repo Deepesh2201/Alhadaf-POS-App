@@ -514,26 +514,23 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_bill_discount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp6dp"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                >
 
                 <TextView
-                    android:id="@+id/tv_name_discountandcredit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:letterSpacing="0.05"
-                    android:text="Discount Amt"
+                    android:text="Total Discount Amt"
                     android:textColor="@color/black"
                     android:textSize="@dimen/dp14dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_bill_discount1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:letterSpacing="0.05"

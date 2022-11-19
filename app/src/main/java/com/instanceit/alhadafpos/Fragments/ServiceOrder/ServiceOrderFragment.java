@@ -334,7 +334,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_bill_total_disc = view.findViewById(R.id.tv_bill_discount);
 
         tv_bill_discount= view.findViewById(R.id.tv_bill_discount);
-        ll_bill_discount=view.findViewById(R.id.ll_bill_discount);
+//        ll_bill_discount=view.findViewById(R.id.ll_bill_discount);
 
         tv_gst = view.findViewById(R.id.tv_gst);
         tv_address = view.findViewById(R.id.tv_address);
@@ -2305,11 +2305,13 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_total_payable_amount.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
 
         if(total_item_discount_all>0){
-        ll_bill_discount.setVisibility(VISIBLE);
+//        ll_bill_discount.setVisibility(VISIBLE);
         tv_bill_discount.setText("Qr." + String.format("%.2f", total_item_discount_all));
         }
         else{
-            ll_bill_discount.setVisibility(GONE);
+            tv_bill_discount.setText("Qr." + String.format("%.2f", 0));
+
+//            ll_bill_discount.setVisibility(GONE);
         }
 
         SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
