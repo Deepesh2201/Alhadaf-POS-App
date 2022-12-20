@@ -6,7 +6,7 @@ import io.michaelrocks.paranoid.Obfuscate;
 public class AppConstant {
 
     //server url
-    public static final String BASE_URL = "https://shooting.dgldigital.com/pos/api/v1.0/";
+    public static final String BASE_URL = "http://development.alhadafrange.com/pos/api/v1.0/";
 
     public static final String LOGIN_URL = BASE_URL + "login.php";
     public static final String LOGOUT_URL = BASE_URL + "logout.php";
