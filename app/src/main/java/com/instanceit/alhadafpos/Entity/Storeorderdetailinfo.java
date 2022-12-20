@@ -70,6 +70,9 @@ public class Storeorderdetailinfo {
     @SerializedName("discountamt")
     @Expose
     private String discountamt;
+    @SerializedName("total_discount")
+    @Expose
+    private String totaldiscount;
     @SerializedName("taxable")
     @Expose
     private String taxable;
@@ -242,7 +245,9 @@ public class Storeorderdetailinfo {
     public String getDiscountamt() {
         return discountamt;
     }
-
+    public String gettotalDiscount() {
+        return totaldiscount;
+    }
     public void setDiscountamt(String discountamt) {
         this.discountamt = discountamt;
     }

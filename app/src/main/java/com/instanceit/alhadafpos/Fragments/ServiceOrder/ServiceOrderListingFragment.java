@@ -673,7 +673,7 @@ public class ServiceOrderListingFragment extends Fragment {
     }
 
     Dialog orderDialog = null;
-    TextView tv_t_qty, tv_total_payment, tv_t_price, tv_t_discount, tv_t_taxable, tv_t_vat, tv_t_amount, tv_member_name, tv_amount,
+    TextView tv_t_qty,tv_totaldisc, tv_total_payment, tv_t_price, tv_t_discount, tv_t_taxable, tv_t_vat, tv_t_amount, tv_member_name, tv_amount,
             tv_entry_by, tv_trs_id, tv_oder_date, tv_oder_note, tv_change_amount, tv_lbl_dlg_title, tv_lbl_amount_total, tv_lbl_entry_by,
             tv_lbl_orde_date, tv_lbl_order_note, tv_lbl_item_detail_title, tv_lbl_item, tv_lbl_type, tv_lbl_qty, tv_lbl_discount, tv_lbl_taxable,
             tv_lbl_vat, tv_lbl_amount_title, tv_lbl_total, tv_lbl_payment_detail_title, tv_lbl_payment_type, tv_lbl_change_amount, tv_lbl_total_amount,
@@ -719,6 +719,7 @@ public class ServiceOrderListingFragment extends Fragment {
         tv_t_amount = orderDialog.findViewById(R.id.tv_t_amount);
         iv_close = orderDialog.findViewById(R.id.iv_close);
         tv_total_payment = orderDialog.findViewById(R.id.tv_total_payment);
+        tv_totaldisc = orderDialog.findViewById(R.id.tv_totaldisc);
         rv_item_detail = orderDialog.findViewById(R.id.rv_item_detail);
         rv_payment = orderDialog.findViewById(R.id.rv_payment);
         tv_change_amount = orderDialog.findViewById(R.id.tv_change_amount);
@@ -989,12 +990,14 @@ public class ServiceOrderListingFragment extends Fragment {
         double vat = 0.0;
         double amount = 0.0;
         double total = 0.0;
+        double totalDiscount = 0.0;
 
         for (int i = 0; i < serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().size(); i++) {
 
             qty = qty + Integer.parseInt(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getQty());
             price = price + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getPrice());
             discount = discount + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getDiscountamt());
+            totalDiscount = totalDiscount + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).gettotalDiscount());
             taxable = taxable + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getTaxable());
             vat = vat + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getIgsttaxamt());
             amount = amount + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getFinalprice());
@@ -1004,6 +1007,7 @@ public class ServiceOrderListingFragment extends Fragment {
             tv_t_qty.setText(String.valueOf(qty));
             tv_t_price.setText(String.valueOf(String.format("%.2f", price)));
             tv_t_discount.setText(String.valueOf(String.format("%.2f", discount)));
+            tv_totaldisc.setText(String.valueOf(String.format("%.2f", totalDiscount)));
             tv_t_taxable.setText(String.valueOf(String.format("%.2f", taxable)));
             tv_t_vat.setText(String.valueOf(String.format("%.2f", vat)));
             tv_t_amount.setText(String.valueOf(String.format("%.2f", amount)));
@@ -1014,6 +1018,9 @@ public class ServiceOrderListingFragment extends Fragment {
         }
         if (tv_total_payment != null) {
             tv_total_payment.setText(String.format("%.2f", total));
+        }
+        if (tv_totaldisc != null) {
+            tv_totaldisc.setText(String.format("%.2f", totalDiscount));
         }
 
     }
