@@ -2289,7 +2289,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                         total_price_withqty += (cartArrayList.get(i).getSummaryDetails().get(j).getQty()
                                 * (cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()));
                         total_item_discount_all+=total_item_discount;
-                        total_taxable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getPrice()-total_item_discount;
+                        total_taxable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getTaxable()-total_item_discount;
                         total_tax_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getIgsttaxamt();
                         cartArrayList.get(i).getSummaryDetails().get(j).setFinalprice(cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()-total_item_discount);
                         total_payable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
@@ -2304,7 +2304,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         else{
             ll_bill_discount.setVisibility(GONE);
         }
-        total_taxable_amount_withqty-=total_item_discount;
+        total_taxable_amount_withqty=total_price_withqty-total_item_discount;
         tv_total_price.setText("Qr." + String.format("%.2f", total_price_withqty));
         tv_tot_vat.setText("Qr." + String.format("%.2f", (total_tax_amount_withqty)));
         tv_total_taxable_amt.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
