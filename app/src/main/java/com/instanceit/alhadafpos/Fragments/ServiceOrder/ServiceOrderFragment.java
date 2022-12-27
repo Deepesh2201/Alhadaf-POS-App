@@ -2276,7 +2276,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                             taxableamt = (final_Price * 100) / (100 + (cartArrayList.get(i).getSummaryDetails().get(j).getIgst()));
                             taxamt = final_Price - taxableamt;
                         }
-                        total_item_discount = ( (cartArrayList.get(i).getSummaryDetails().get(j).getPrice())*cartArrayList.get(i).getDisc())/100;
+                        total_item_discount = ( (cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice())*cartArrayList.get(i).getDisc())/100;
                         total_price_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()- cartArrayList.get(i).getSummaryDetails().get(j).getDiscountamt();
                         total_item_discount_all+=total_item_discount;
                         total_taxable_amount_withqty += taxableamt * cartArrayList.get(i).getSummaryDetails().get(j).getQty()-total_item_discount;
@@ -2285,9 +2285,9 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                         total_payable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
                     } else {
                         total_item_discount = (cartArrayList.get(i).getSummaryDetails().get(j).getQty()
-                                * (cartArrayList.get(i).getSummaryDetails().get(j).getPrice())*cartArrayList.get(i).getDisc())/100;
+                                * (cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice())*cartArrayList.get(i).getDisc())/100;
                         total_price_withqty += (cartArrayList.get(i).getSummaryDetails().get(j).getQty()
-                                * (cartArrayList.get(i).getSummaryDetails().get(j).getPrice() - cartArrayList.get(i).getSummaryDetails().get(j).getDiscountamt()));
+                                * (cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice() - cartArrayList.get(i).getSummaryDetails().get(j).getDiscountamt()));
                         total_item_discount_all+=total_item_discount;
                         total_taxable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getTaxable()-total_item_discount;
                         total_tax_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getIgsttaxamt();
