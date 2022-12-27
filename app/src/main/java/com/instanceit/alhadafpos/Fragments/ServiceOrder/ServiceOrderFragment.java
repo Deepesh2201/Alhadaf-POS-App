@@ -2276,7 +2276,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                             taxableamt = (final_Price * 100) / (100 + (cartArrayList.get(i).getSummaryDetails().get(j).getIgst()));
                             taxamt = final_Price - taxableamt;
                         }
-                        total_item_discount = ( (cartArrayList.get(i).getSummaryDetails().get(j).getPrice())*cartArrayList.get(i).getDisc())/100;
+                        total_item_discount = (cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()*(cartArrayList.get(i).getSummaryDetails().get(j).getPrice())*cartArrayList.get(i).getDisc())/100;
                         total_price_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
                         total_item_discount_all+=total_item_discount;
 //                        taxableamt * cartArrayList.get(i).getSummaryDetails().get(j).getQty()
