@@ -2053,6 +2053,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
 
         summaryDetail.setTaxable(taxableamt * itemQty);
 
+
 //        double discAmt = ((taxableamt * membershipItemArrayList.get(schemeIndex).getItemsubdetail().get(subItemPos).getDiscount()) / 100);
 //        final_Price = final_Price - discAmt;
 
@@ -2499,11 +2500,11 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
 
         numpad.setIconsColor(getResources().getColor(R.color.colorPrimary));
 
-        tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_payable_amount_withqty))));
+        tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_price_withqty))));
 //         value=total_payable_amount_withqty;
 //
 //        tv_totdiscamt.setText(String.format("%.2f", value));
-        tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_taxable_amount_withqty))));
+        tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_price_withqty))));
 
         tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_taxable_amount_withqty))-value));
         tv_header.setText("Total : " + String.format("%.2f", total_taxable_amount_withqty));
@@ -2537,7 +2538,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                     tv_totdiscamt.setText(String.format("%.2f", value));
                     total_item_discount_all=value;
                     tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_taxable_amount_withqty))));
-                    double temp_FinalTotal=total_taxable_amount_withqty-value;
+                    double temp_FinalTotal=total_price_withqty-value;
                     int remaininng = (int) Math.round(temp_FinalTotal);
                     tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(remaininng))));
 
@@ -2549,7 +2550,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                     tv_totdiscamt.setText(String.format("%.2f", value));
                     total_item_discount_all=value;
                     tv_totamt.setText(String.format("%.2f", Double.parseDouble(String.valueOf(total_taxable_amount_withqty))));
-                    double temp_FinalTotal=total_taxable_amount_withqty-value;
+                    double temp_FinalTotal=total_price_withqty-value;
                     int remaininng = (int) Math.round(temp_FinalTotal);
                     tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(remaininng))));
 
