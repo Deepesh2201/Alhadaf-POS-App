@@ -2309,7 +2309,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_total_price.setText("Qr." + String.format("%.2f", total_price_withqty));
         tv_tot_vat.setText("Qr." + String.format("%.2f", (total_tax_amount_withqty)));
         tv_total_taxable_amt.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
-        tv_total_payable_amount.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
+        tv_total_payable_amount.setText("Qr." + String.format("%.2f", total_price_withqty));
 
 //        if(total_item_discount_all>0){
 //        ll_bill_discount.setVisibility(VISIBLE);
