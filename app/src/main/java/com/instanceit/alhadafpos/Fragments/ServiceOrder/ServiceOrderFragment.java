@@ -2297,19 +2297,27 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                 }
             }
         }
+        if(total_item_discount_all>0){
+            ll_bill_discount.setVisibility(VISIBLE);
+            tv_bill_discount.setText("Qr." + String.format("%.2f", total_item_discount_all));
+        }
+        else{
+            ll_bill_discount.setVisibility(GONE);
+        }
+        total_taxable_amount_withqty=total_price_withqty-total_item_discount;
 
         tv_total_price.setText("Qr." + String.format("%.2f", total_price_withqty));
         tv_tot_vat.setText("Qr." + String.format("%.2f", (total_tax_amount_withqty)));
         tv_total_taxable_amt.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
         tv_total_payable_amount.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
 
-        if(total_item_discount_all>0){
-        ll_bill_discount.setVisibility(VISIBLE);
-        tv_bill_discount.setText("Qr." + String.format("%.2f", total_item_discount_all));
-        }
-        else{
-            ll_bill_discount.setVisibility(GONE);
-        }
+//        if(total_item_discount_all>0){
+//        ll_bill_discount.setVisibility(VISIBLE);
+//        tv_bill_discount.setText("Qr." + String.format("%.2f", total_item_discount_all));
+//        }
+//        else{
+//            ll_bill_discount.setVisibility(GONE);
+//        }
 
         SessionManagement.savePreferences(mainActivity, AppConstant.TEMPCART, new Gson().toJson(cartArrayList));
 //        Log.e("Add", "ITEMCARTARRAY" + new Gson().toJson(cartArrayList));
