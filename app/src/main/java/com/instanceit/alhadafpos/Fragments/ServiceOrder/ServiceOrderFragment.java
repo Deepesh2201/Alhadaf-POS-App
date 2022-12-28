@@ -331,7 +331,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_bill_cgst = view.findViewById(R.id.tv_bill_cgst);
         tv_bill_sgst = view.findViewById(R.id.tv_bill_sgst);
         tv_bill_total = view.findViewById(R.id.tv_bill_total);
-        tv_bill_total_disc = view.findViewById(R.id.tv_bill_discount);
+        tv_bill_total_disc = view.findViewById(R.id.tv_bill_discount1);
 
         tv_bill_discount= view.findViewById(R.id.tv_bill_discount);
         ll_bill_discount=view.findViewById(R.id.ll_bill_discount);
@@ -2906,12 +2906,17 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_bill_total.setText("Qr : " + total_taxable_amount_withqty);
         if(value>0){
         tx_discount.setVisibility(VISIBLE);
-        tv_bill_total_disc.setText("Qr : " + value);
-        }else if(total_item_discount_all>0){
-//            tx_discount.setVisibility(VISIBLE);
-            tv_bill_total_disc.setText("Qr : " + total_item_discount_all);
-
+            tv_bill_discount.setText("Qr : " + value);
+            tv_bill_total_disc.setText("Qr : " + value);
         }
+        tv_bill_discount.setText("Qr : " + value);
+
+        if(total_item_discount_all>0){
+//            tx_discount.setVisibility(VISIBLE);
+            tv_bill_discount.setText("Qr : " + total_item_discount_all);
+            tv_bill_total_disc.setText("Qr : " + total_item_discount_all);
+        }
+
 
         //<editor-fold desc="PaymentType in bill">
         String paymentlist = SessionManagement.getStringValue(getContext(), AppConstant.PAYMENTLIST, "");
