@@ -44,6 +44,9 @@ public class ServiceOrder {
     private String totalpaid;
     @SerializedName("totalpayableamt")
     @Expose
+    private String totaldiscount;
+    @SerializedName("totaldiscount")
+    @Expose
     private String totalpayableamt;
     @SerializedName("totalpaidamount")
     @Expose

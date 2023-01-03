@@ -125,7 +125,7 @@ public class ServiceOrderListingFragment extends Fragment {
 
     //bill print views
     FrameLayout frameLayout_bill, framelayout_list;
-    TextView tv_cust_name, tv_bill_Remaining, tv_cust_mobile, tv_salepersonname, tv_date, tv_bill_taxbale, tv_bill_sgst, tv_bill_cgst, tv_bill_total, tv_companyname,
+    TextView tv_cust_name, tv_bill_Remaining, tv_cust_mobile, tv_salepersonname,tv_netpayableamt,tv_totalbilldiscount,tv_prt_redeeamt, tv_date, tv_bill_taxbale, tv_bill_sgst, tv_bill_cgst, tv_bill_total, tv_bill_discount, tv_companyname,
             tv_gst, tv_fssaino, tv_address, tv_orderno, tv_cashamt, tv_ordertype, tv_header_paytype, tv_parentcompany, tv_order_qty, tv_store_name, tv_ord_no;
     RecyclerView rv_item_bill, rv_bill_paytype;
     View view1, view2;
@@ -134,8 +134,7 @@ public class ServiceOrderListingFragment extends Fragment {
     LinearLayout ll_taxsummary18, ll_taxsummary0, ll_taxsummary5, ll_taxsummary12, ll_taxsummary28;
     TextView tv_bill_change, tv_type18, tv_taxable18, tv_taxamt18, tv_netamt18, tv_type0, tv_taxable0, tv_taxamt0, tv_netamt0, tv_type5, tv_taxable5,
             tv_taxamt5, tv_netamt5, tv_type12, tv_taxable12, tv_taxamt12, tv_netamt12, tv_type28, tv_taxable28, tv_taxamt28, tv_netamt28, tv_typetotal, tv_taxabletotal,
-            tv_taxamttotal, tv_netamttotal, tv_prt_redeeamt, tv_takeordine, tv_contact_number, tv_prt_gstnumber;
-
+            tv_taxamttotal, tv_netamttotal, tv_takeordine, tv_contact_number, tv_prt_gstnumber;
 
     //    variables
     int PageNumber = 1;
@@ -210,6 +209,8 @@ public class ServiceOrderListingFragment extends Fragment {
         frameLayout_bill = view.findViewById(R.id.framelayout_bill);
         framelayout_list = view.findViewById(R.id.framelayout_list);
         tv_salepersonname = view.findViewById(R.id.tv_salepersonname);
+        tv_totalbilldiscount = view.findViewById(R.id.tv_totalbilldiscount);
+        tv_netpayableamt = view.findViewById(R.id.tv_netpayableamt);
         tv_cust_name = view.findViewById(R.id.tv_cust_name);
         rv_item_bill = view.findViewById(R.id.rv_item_bill);
         tv_cust_mobile = view.findViewById(R.id.tv_cust_mobile);
@@ -218,6 +219,7 @@ public class ServiceOrderListingFragment extends Fragment {
         tv_bill_cgst = view.findViewById(R.id.tv_bill_cgst);
         tv_bill_sgst = view.findViewById(R.id.tv_bill_sgst);
         tv_bill_total = view.findViewById(R.id.tv_bill_total);
+        tv_bill_discount = view.findViewById(R.id.tv_bill_discount);
         tv_gst = view.findViewById(R.id.tv_gst);
         tv_address = view.findViewById(R.id.tv_address);
         tv_orderno = view.findViewById(R.id.tv_orderno);
@@ -294,7 +296,7 @@ public class ServiceOrderListingFragment extends Fragment {
             }.getType();
 
             userRights = gson.fromJson(json, type);
-//            Log.e("UERRIGHTS", "Initialization: " + new Gson().toJson(userRights));
+      //   Log.d("UERRIGHTS", "Initialization: " + new Gson().toJson(userRights));
             for (int i = 0; i < userRights.size(); i++) {
                 if (userRights.get(i).getPagename().equals(AppConstant.TXT_APPMENU_SERVICE_ORDER)) {
                     edit_right = userRights.get(i).getEditright();
@@ -654,7 +656,7 @@ public class ServiceOrderListingFragment extends Fragment {
                                             serviceOrderDetailArrayList.get(0).getTotalpaid(), String.valueOf(Double.parseDouble(serviceOrderArrayList.get(0).getTotalamount())-Double.parseDouble( serviceOrderArrayList.get(0).getTotalpaid())),
                                             serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo(),
                                             serviceOrderDetailArrayList.get(0).getServiceorderpaymentdetailinfo(), serviceOrderDetailArrayList.get(0).getOfulldate(),
-                                            serviceOrderDetailArrayList.get(0).getEntrypersonname(),serviceOrderDetailArrayList.get(0).getStorename());
+                                            serviceOrderDetailArrayList.get(0).getEntrypersonname(),serviceOrderDetailArrayList.get(0).getTotalbilldiscount(),serviceOrderDetailArrayList.get(0).getStorename());
                                 } catch (Exception e) {
                                     e.printStackTrace();
 //                                    Log.e("Exception", "onResponse: " + e.toString());
@@ -723,6 +725,7 @@ public class ServiceOrderListingFragment extends Fragment {
         rv_item_detail = orderDialog.findViewById(R.id.rv_item_detail);
         rv_payment = orderDialog.findViewById(R.id.rv_payment);
         tv_change_amount = orderDialog.findViewById(R.id.tv_change_amount);
+        tv_bill_change = orderDialog.findViewById(R.id.tv_bill_change);
         tv_lbl_dlg_title = orderDialog.findViewById(R.id.tv_lbl_dlg_title);
         tv_lbl_member = orderDialog.findViewById(R.id.tv_lbl_member);
         tv_lbl_amount_total = orderDialog.findViewById(R.id.tv_lbl_amount_total);
@@ -1217,7 +1220,7 @@ public class ServiceOrderListingFragment extends Fragment {
 
     private void SetPrintBillValues(String cmp_logo, String cmp_address, String cmp_email, String cmp_contact,
                                     String cmp_israngehour, String totalpaid, String totalchangeamount, ArrayList<Storeorderdetailinfo> serviceorderdetailinfo,
-                                    ArrayList<Storeorderpaymentdetailinfo> serviceorderpaymentdetailinfo, String date, String entrypersonname,String storename) {
+                                    ArrayList<Storeorderpaymentdetailinfo> serviceorderpaymentdetailinfo, String date, String entrypersonname,String totalbilldiscount,String storename) {
         tv_orderno.setVisibility(GONE);
         Glide.with(getContext()).load(cmp_logo).into(iv_prt_companylogo);
         tv_contact_number.setText("Mobile No : " + cmp_contact + "\n Email : " + cmp_email);
@@ -1246,7 +1249,10 @@ public class ServiceOrderListingFragment extends Fragment {
         rv_item_bill.setAdapter(billItemAdapter);
 
 //        tv_bill_total.setText("656565656565665656565656");
+//        tv_bill_total.setText("Qr : " + totalpaid);
         tv_bill_total.setText("Qr : " + totalpaid);
+        tv_totalbilldiscount.setText("Qr :"+ String.format("%.2f", Double.parseDouble(totalbilldiscount)));
+        tv_netpayableamt.setText("Qr : " + String.format("%.2f",(Double.parseDouble(totalpaid) - Double.parseDouble(totalbilldiscount))));
 
 
         if (serviceorderpaymentdetailinfo.size() > 0) {
@@ -1278,15 +1284,18 @@ public class ServiceOrderListingFragment extends Fragment {
 
 
         tv_header_paytype.setVisibility(VISIBLE);
-        tv_prt_redeeamt.setText("Qr: " + String.format("%.2f", Double.parseDouble(totalpaid)));
+        tv_prt_redeeamt.setText("Qr : " + String.format("%.2f",(Double.parseDouble(totalpaid) - Double.parseDouble(totalbilldiscount))));
         view1.setVisibility(VISIBLE);
         view2.setVisibility(VISIBLE);
 
-        if (Double.parseDouble(totalchangeamount) > 0.0) {
-            tv_bill_change.setText("Qr: " + String.format("%.2f", Double.parseDouble(totalchangeamount)));
-        } else {
-            tv_bill_change.setText("Qr: " + "0.00");
-        }
+        tv_bill_change.setText("Qr " + String.format("%.2f", Double.parseDouble(serviceOrderDetailArrayList.get(0).getTotalchangeamount())));
+
+//        if (Double.parseDouble(totalchangeamount) > 0.0) {
+//            tv_bill_change.setText("Qr: " + String.format("%.2f", Double.parseDouble(totalchangeamount)));
+//        } else {
+//            tv_bill_change.setText("Qr: " + "0.00");
+//
+//        }
 
         tv_takeordine.setVisibility(GONE);
 //        final Bitmap bitmap = loadBitmapFromView(frameLayout_bill);

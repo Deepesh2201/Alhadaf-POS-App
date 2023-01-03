@@ -134,7 +134,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
     public TextView tv_cancel_order, tv_proceed, tv_cart_switch, tv_customerdata_switch, tv_nodata_cart, tv_last_visit_title, tv_view_more, tv_operation_flow_title,
             tv_lbl_total_amount, tv_lbl_taxable_amount, tv_lbl_vat, tv_lbl_total;
     public TextView tv_full_name, tv_c_number, tv_email, tv_qatar_id, tv_q_expiry, tv_dob, tv_active_pck_title, tv_item_title, tv_lbl_name, tv_lbl_contact_no, tv_lbl_email, tv_lbl_qatar_id, tv_lbl_qatar_id_expiry_date, tv_lbl_dob;
-    public TextView tv_total_price, tv_lbl_nodata_customer, tv_tot_disc_amount, tv_total_taxable_amt, tv_tot_vat, tv_total_payable_amount, tv_lbl_title_customer_det,
+    public TextView tv_total_price, tv_lbl_nodata_customer, tv_tot_disc_amount, tv_total_taxable_amt, tv_tot_vat, tv_total_payable_amount,tv_netpayableamt, tv_lbl_title_customer_det,
             tv_passport_id, tv_passport_expiry, tv_nodata_item;
     SwipeRefreshLayout swiperefresh;
     LinearLayout ll_button, ll_total, ll_maintotal, ln_view_more_package_detail, ll_category;
@@ -285,6 +285,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_total_taxable_amt = view.findViewById(R.id.tv_total_taxable_amt);
         tv_tot_vat = view.findViewById(R.id.tv_tot_vat);
         tv_total_payable_amount = view.findViewById(R.id.tv_total_payable_amount);
+        tv_netpayableamt = view.findViewById(R.id.tv_netpayableamt);
         rv_lastvisit = view.findViewById(R.id.rv_lastvisit);
         cv_last_visit = view.findViewById(R.id.cv_last_visit);
         tv_last_visit_title = view.findViewById(R.id.tv_last_visit_title);
@@ -331,7 +332,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_bill_cgst = view.findViewById(R.id.tv_bill_cgst);
         tv_bill_sgst = view.findViewById(R.id.tv_bill_sgst);
         tv_bill_total = view.findViewById(R.id.tv_bill_total);
-        tv_bill_total_disc = view.findViewById(R.id.tv_bill_discount1);
+        tv_bill_total_disc = view.findViewById(R.id.tv_totalbilldiscount);
 
         tv_bill_discount= view.findViewById(R.id.tv_bill_discount);
         ll_bill_discount=view.findViewById(R.id.ll_bill_discount);
@@ -2218,6 +2219,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
     //<editor-fold desc="Calculate Cart Total">
     double total_price_withqty = 0.0;
     double total_taxable_amount_withqty = 0.0;
+    double total_taxable_amount_withqtyy = 0.0;
     double total_tax_amount_withqty = 0.0;
     double total_payable_amount_withqty = 0.0;
     double total_item_discount = 0.0;
@@ -2227,6 +2229,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
 
         total_price_withqty = 0.0;
         total_taxable_amount_withqty = 0.0;
+        total_taxable_amount_withqtyy = 0.0;
         total_tax_amount_withqty = 0.0;
         total_payable_amount_withqty = 0.0;
         final_Price = 0.0;
@@ -2281,6 +2284,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                         total_item_discount_all+=total_item_discount;
 //                        taxableamt * cartArrayList.get(i).getSummaryDetails().get(j).getQty()
                         total_taxable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()-total_item_discount;
+                        total_taxable_amount_withqtyy += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
                         total_tax_amount_withqty += taxamt * cartArrayList.get(i).getSummaryDetails().get(j).getQty();
                         cartArrayList.get(i).getSummaryDetails().get(j).setFinalprice(cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()-total_item_discount);
                         total_payable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
@@ -2291,6 +2295,7 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                                 * (cartArrayList.get(i).getSummaryDetails().get(j).getPrice()));
                         total_item_discount_all+=total_item_discount;
                         total_taxable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getTaxable()-total_item_discount;
+                        total_taxable_amount_withqtyy += cartArrayList.get(i).getSummaryDetails().get(j).getTaxable();
                         total_tax_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getIgsttaxamt();
                         cartArrayList.get(i).getSummaryDetails().get(j).setFinalprice(cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice()-total_item_discount);
                         total_payable_amount_withqty += cartArrayList.get(i).getSummaryDetails().get(j).getFinalprice();
@@ -2298,18 +2303,19 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
                 }
             }
         }
-        if(total_item_discount_all>0){
-            ll_bill_discount.setVisibility(VISIBLE);
-            tv_bill_discount.setText("Qr." + String.format("%.2f", total_item_discount_all));
-        }
-        else{
-            ll_bill_discount.setVisibility(GONE);
-        }
+//        if(total_item_discount_all>0){
+//            ll_bill_discount.setVisibility(VISIBLE);
+//            tv_bill_discount.setText("Qr." + String.format("%.2f", total_item_discount_all));
+//        }
+//        else{
+//            ll_bill_discount.setVisibility(GONE);
+//        }
 //        total_taxable_amount_withqty=total_price_withqty-total_item_discount_all;
         tv_total_price.setText("Qr." + String.format("%.2f", total_price_withqty));
         tv_tot_vat.setText("Qr." + String.format("%.2f", (total_tax_amount_withqty)));
         tv_total_taxable_amt.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
         tv_total_payable_amount.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
+      //  tv_netpayableamt.setText("Qr." + String.format("%.2f", total_taxable_amount_withqty));
 //        total_price_withqty=0;
 
 
@@ -2554,6 +2560,8 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
 
 //                    tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(totalRemainAmt))));
                     tv_header.setText("Total : " + String.format("%.2f", total_taxable_amount_withqty));
+                    tv_total_price.setText("Qr." + String.format("%.2f", total_price_withqty));
+                    tv_prt_redeeamt.setText("Qr." + String.format("%.2f", (total_price_withqty)-(value)));
 
                 }else{
                     value = 0.0;
@@ -2566,6 +2574,8 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
 
 //                    tv_remaining.setText(String.format("%.2f", Double.parseDouble(String.valueOf(totalRemainAmt))));
                     tv_header.setText("Total : " + String.format("%.2f", total_taxable_amount_withqty));
+                  //  tv_prt_redeeamt.setText("Qr." + String.format("%.2f", total_price_withqty));
+                  //  tv_total_price.setText("Qr." + String.format("%.2f", (total_price_withqty)-(value)));
 
                 }
                 if(editable.toString().length()>0&&Double.parseDouble(editable.toString())>
@@ -2903,19 +2913,26 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_order_qty.setText("" + totalQty);
         BillItemAdapter billItemAdapter = new BillItemAdapter(getContext(), billItemArrayList);
         rv_item_bill.setAdapter(billItemAdapter);
-        tv_bill_total.setText("Qr : " + total_taxable_amount_withqty);
-        if(value>0){
-        tx_discount.setVisibility(VISIBLE);
-            tv_bill_discount.setText("Qr : " + value);
-            tv_bill_total_disc.setText("Qr : " + value);
-        }
+      //  tv_bill_total.setText("Qrr : " + total_taxable_amount_withqty);
+//        if(value>0){
+//        tx_discount.setVisibility(VISIBLE);
+//            tv_bill_discount.setText("Qr : " + value);
+//            tv_bill_total_disc.setText("Qr : " + value);
+//        }
         tv_bill_discount.setText("Qr : " + value);
 
         if(total_item_discount_all>0){
 //            tx_discount.setVisibility(VISIBLE);
+            tv_prt_redeeamt.setText("Qr : " + (total_taxable_amount_withqtyy-total_item_discount_all));
+            tv_bill_total.setText("Qr." + total_taxable_amount_withqtyy);
+//            tv_bill_total.setText("Qr." + String.format("%.2f", (total_price_withqty)-(value)));
+
+        //    tv_total_price.setText("Qr." + String.format("%.2f", total_price_withqty));
+
             tv_bill_discount.setText("Qr : " + total_item_discount_all);
             tv_bill_total_disc.setText("Qr : " + total_item_discount_all);
         }
+
 
 
         //<editor-fold desc="PaymentType in bill">
@@ -2954,7 +2971,9 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
         tv_netamt28.setText("0");
 
         tv_header_paytype.setVisibility(VISIBLE);
-        tv_prt_redeeamt.setText("Qr: " + String.format("%.2f", total_item_discount_all));
+//        tv_total_price.setText("Qr." + String.format("%.2f", total_price_withqty));
+//        tv_prt_redeeamt.setText("Qr." + String.format("%.2f", (total_price_withqty)-(value)));
+//        tv_prt_redeeamt.setText("Qr: " + String.format("%.2f", total_item_discount_all));
         view1.setVisibility(VISIBLE);
         view2.setVisibility(VISIBLE);
 

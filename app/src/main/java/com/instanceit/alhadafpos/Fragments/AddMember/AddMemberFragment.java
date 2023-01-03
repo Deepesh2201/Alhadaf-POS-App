@@ -156,12 +156,12 @@ public class AddMemberFragment extends Fragment {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             myBinder = (IMyBinder) service;
-//            Log.e("myBinder", "connect");
+            Log.e("myBinder", "connect");
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-//            Log.e("myBinder", "disconnect");
+            Log.e("myBinder", "disconnect");
         }
     };
 

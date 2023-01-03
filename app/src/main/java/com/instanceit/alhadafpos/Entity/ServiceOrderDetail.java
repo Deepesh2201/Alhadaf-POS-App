@@ -60,6 +60,9 @@ public class ServiceOrderDetail {
     @SerializedName("entrypersonname")
     @Expose
     private String entrypersonname;
+    @SerializedName("total_discount")
+    @Expose
+    private String totalbilldiscount;
     @SerializedName("storename")
     @Expose
     private String storename;
@@ -239,6 +242,14 @@ public class ServiceOrderDetail {
 
     public void setEntrypersonname(String entrypersonname) {
         this.entrypersonname = entrypersonname;
+    }
+
+    public String getTotalbilldiscount() {
+        return totalbilldiscount;
+    }
+
+    public void setTotalbilldiscount(String totalbilldiscount) {
+        this.totalbilldiscount = totalbilldiscount;
     }
 
     public String getEntrypersoncontact() {
