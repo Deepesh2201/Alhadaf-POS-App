@@ -994,6 +994,7 @@ public class ServiceOrderListingFragment extends Fragment {
         double amount = 0.0;
         double total = 0.0;
         double totalDiscount = 0.0;
+        double totalDiscountVal = 0.0;
 
         for (int i = 0; i < serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().size(); i++) {
 
@@ -1001,6 +1002,7 @@ public class ServiceOrderListingFragment extends Fragment {
             price = price + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getPrice());
             discount = discount + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getDiscountamt());
             totalDiscount = totalDiscount + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).gettotalDiscount());
+            totalDiscountVal = Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).gettotalDiscount());
             taxable = taxable + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getTaxable());
             vat = vat + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getIgsttaxamt());
             amount = amount + Double.parseDouble(serviceOrderDetailArrayList.get(0).getServiceorderdetailinfo().get(i).getFinalprice());
@@ -1010,7 +1012,7 @@ public class ServiceOrderListingFragment extends Fragment {
             tv_t_qty.setText(String.valueOf(qty));
             tv_t_price.setText(String.valueOf(String.format("%.2f", price)));
             tv_t_discount.setText(String.valueOf(String.format("%.2f", discount)));
-            tv_totaldisc.setText(String.valueOf(String.format("%.2f", totalDiscount)));
+            tv_totaldisc.setText(String.valueOf(String.format("%.2f", totalDiscountVal)));
             tv_t_taxable.setText(String.valueOf(String.format("%.2f", taxable)));
             tv_t_vat.setText(String.valueOf(String.format("%.2f", vat)));
             tv_t_amount.setText(String.valueOf(String.format("%.2f", amount)));
@@ -1023,7 +1025,7 @@ public class ServiceOrderListingFragment extends Fragment {
             tv_total_payment.setText(String.format("%.2f", total));
         }
         if (tv_totaldisc != null) {
-            tv_totaldisc.setText(String.format("%.2f", totalDiscount));
+            tv_totaldisc.setText(String.format("%.2f", totalDiscountVal));
         }
 
     }

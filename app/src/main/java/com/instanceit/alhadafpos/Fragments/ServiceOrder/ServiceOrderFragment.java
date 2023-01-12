@@ -2932,6 +2932,10 @@ public class ServiceOrderFragment extends Fragment implements AdapterCallback {
             tv_bill_discount.setText("Qr : " + total_item_discount_all);
             tv_bill_total_disc.setText("Qr : " + total_item_discount_all);
         }
+        else{
+            tv_prt_redeeamt.setText("Qr : " + (total_taxable_amount_withqtyy));
+
+        }
 
 
 
